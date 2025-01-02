@@ -14,6 +14,7 @@ import java.util.List;
 @RequestMapping("api/properties")
 public class PropertyController {
 
+
     private final PropertyService propertyService;
 
     @Autowired
