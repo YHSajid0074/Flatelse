@@ -14,7 +14,11 @@ public record PropertiesRequestDto(
         String restrictions,
         MultipartFile heroImage,
         List<MultipartFile> imageUrls,
-        List<String> shortTitle
+        List<String> shortTitle,
+        String propertyType,
+        String propertySize,
+        Boolean parking,
+        Boolean furnished
 ) {
 
 }

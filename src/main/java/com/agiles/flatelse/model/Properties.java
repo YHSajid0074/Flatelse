@@ -16,6 +16,10 @@ public class Properties {
     private String longDescription;
     private String features;
     private String restrictions;
+    private String propertyType;
+    private String propertySize;
+    private Boolean parking;
+    private Boolean furnished;
 
     // Hero Image (main image) field
     private String heroImage;
@@ -35,7 +39,8 @@ public class Properties {
     public Properties() {}
 
     public Properties(String location, String price, String shortDescription, String longDescription,
-                      String features, String restrictions, List<String> shortTitle) {
+                      String features, String restrictions, List<String> shortTitle,String propertyType,
+                      String propertySize,Boolean parking,Boolean furnished) {
         this.location = location;
         this.price = price;
         this.shortDescription = shortDescription;
@@ -43,6 +48,10 @@ public class Properties {
         this.features = features;
         this.restrictions = restrictions;
         this.shortTitle = shortTitle;
+        this.parking = parking;
+        this.furnished = furnished;
+        this.propertyType = propertyType;
+        this.propertySize = propertySize;
     }
 
     public Long getId() {
@@ -123,6 +132,41 @@ public class Properties {
 
     public void setShortTitle(List<String> shortTitle) {
         this.shortTitle = shortTitle;
+    }
+    // Getter and Setter for propertyType
+    public String getPropertyType() {
+        return propertyType;
+    }
+
+    public void setPropertyType(String propertyType) {
+        this.propertyType = propertyType;
+    }
+
+    // Getter and Setter for propertySize
+    public String getPropertySize() {
+        return propertySize;
+    }
+
+    public void setPropertySize(String propertySize) {
+        this.propertySize = propertySize;
+    }
+
+    // Getter and Setter for parking
+    public Boolean getParking() {
+        return parking;
+    }
+
+    public void setParking(Boolean parking) {
+        this.parking = parking;
+    }
+
+    // Getter and Setter for furnished
+    public Boolean getFurnished() {
+        return furnished;
+    }
+
+    public void setFurnished(Boolean furnished) {
+        this.furnished = furnished;
     }
 }
 

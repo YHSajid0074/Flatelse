@@ -22,5 +22,13 @@ public interface PropertiesResponseDto {
     List<String> getImageUrls();
 
     List<String> getShortTitle();
+
+    String getPropertyType();
+
+    String getPropertySize();
+
+    Boolean getParking();
+
+    Boolean getFurnished();
 }
 
