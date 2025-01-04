@@ -20,7 +20,11 @@ public class Properties {
     private String propertySize;
     private Boolean parking;
     private Boolean furnished;
-
+    private Integer yearBuilt;
+    private Boolean petFriendly;
+    private String availabilityStatus;
+    private String ownerName;
+    private String ownerContact;
     // Hero Image (main image) field
     private String heroImage;
 
@@ -40,7 +44,8 @@ public class Properties {
 
     public Properties(String location, String price, String shortDescription, String longDescription,
                       String features, String restrictions, List<String> shortTitle,String propertyType,
-                      String propertySize,Boolean parking,Boolean furnished) {
+                      String propertySize,Boolean parking,Boolean furnished,Integer yearBuilt,
+                      Boolean petFriendly,String availabilityStatus,String ownerName,String ownerContact) {
         this.location = location;
         this.price = price;
         this.shortDescription = shortDescription;
@@ -52,6 +57,11 @@ public class Properties {
         this.furnished = furnished;
         this.propertyType = propertyType;
         this.propertySize = propertySize;
+        this.yearBuilt = yearBuilt;
+        this.petFriendly = petFriendly;
+        this.availabilityStatus = availabilityStatus;
+        this.ownerName = ownerName;
+        this.ownerContact = ownerContact;
     }
 
     public Long getId() {
@@ -168,6 +178,46 @@ public class Properties {
     public void setFurnished(Boolean furnished) {
         this.furnished = furnished;
     }
+    public Integer getYearBuilt() {
+        return yearBuilt;
+    }
+
+    public void setYearBuilt(Integer yearBuilt) {
+        this.yearBuilt = yearBuilt;
+    }
+
+    public Boolean getPetFriendly() {
+        return petFriendly;
+    }
+
+    public void setPetFriendly(Boolean petFriendly) {
+        this.petFriendly = petFriendly;
+    }
+
+    public String getAvailabilityStatus() {
+        return availabilityStatus;
+    }
+
+    public void setAvailabilityStatus(String availabilityStatus) {
+        this.availabilityStatus = availabilityStatus;
+    }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+
+    public String getOwnerContact() {
+        return ownerContact;
+    }
+
+    public void setOwnerContact(String ownerContact) {
+        this.ownerContact = ownerContact;
+    }
+
 }
 
 

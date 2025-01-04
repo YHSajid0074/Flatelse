@@ -46,4 +46,9 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
             select p from Properties p where p.location like %:location%
             """)
     List<PropertiesResponseDto> searchByLocation(@Param("location") String location);
+
+ @Query("""
+           SELECT p FROM Properties p WHERE p.petFriendly = :petFriendly
+           """)
+ List<PropertiesResponseDto> findByPetFriendly(Boolean petFriendly);
 }

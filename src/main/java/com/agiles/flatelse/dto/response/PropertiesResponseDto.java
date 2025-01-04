@@ -30,5 +30,15 @@ public interface PropertiesResponseDto {
     Boolean getParking();
 
     Boolean getFurnished();
+
+    Integer getYearBuilt();
+
+    Boolean getPetFriendly();
+
+    String getAvailabilityStatus();
+
+    String getOwnerName();
+
+    String getOwnerContact();
 }
 

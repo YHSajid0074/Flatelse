@@ -18,7 +18,12 @@ public record PropertiesRequestDto(
         String propertyType,
         String propertySize,
         Boolean parking,
-        Boolean furnished
+        Boolean furnished,
+        Integer yearBuilt,
+        Boolean petFriendly,
+        String availabilityStatus,
+        String ownerName,
+        String ownerContact
 ) {
 
 }

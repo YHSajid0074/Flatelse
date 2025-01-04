@@ -119,4 +119,29 @@ public class PropertiesServiceImpl implements PropertiesService {
     public void deleteProperty(Long id) {
         propertyRepository.deleteById(id);
     }
+    @Override
+    public List<PropertiesResponseDto> searchByParking(Boolean parking) {
+        return propertyRepository.searchByParking(parking);
+    }
+
+    @Override
+    public List<PropertiesResponseDto> searchByFurnished(Boolean furnished) {
+        return propertyRepository.searchByFurnished(furnished);
+    }
+
+    @Override
+    public List<PropertiesResponseDto> searchByPropertyType(String propertyType) {
+        return propertyRepository.searchByPropertyType(propertyType);
+    }
+
+    @Override
+    public List<PropertiesResponseDto> searchByLocation(String location) {
+        return propertyRepository.searchByLocation(location);
+    }
+
+    @Override
+    public List<PropertiesResponseDto> searchByPetFriendly(Boolean petFriendly) {
+        return propertyRepository.findByPetFriendly(petFriendly);
+    }
+
 }

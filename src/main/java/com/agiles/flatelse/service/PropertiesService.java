@@ -19,4 +19,14 @@ public interface PropertiesService {
     PropertiesResponseDto updateProperty(Long id, Properties properties, MultipartFile heroImageFile, List<MultipartFile> additionalImagesFiles) throws Exception;
 
     void deleteProperty(Long id);
+
+    List<PropertiesResponseDto> searchByParking(Boolean parking);
+
+    List<PropertiesResponseDto> searchByFurnished(Boolean furnished);
+
+    List<PropertiesResponseDto> searchByPropertyType(String propertyType);
+
+    List<PropertiesResponseDto> searchByLocation(String location);
+
+    List<PropertiesResponseDto> searchByPetFriendly(Boolean petFriendly);
 }
