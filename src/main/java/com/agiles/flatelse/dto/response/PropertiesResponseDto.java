@@ -4,6 +4,7 @@ package com.agiles.flatelse.dto.response;
 import java.util.List;
 
 public interface PropertiesResponseDto {
+    Long getId();
 
     String getLocation();
 
