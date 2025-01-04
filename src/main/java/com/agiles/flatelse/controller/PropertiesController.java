@@ -1,6 +1,7 @@
 package com.agiles.flatelse.controller;
 
 import com.agiles.flatelse.dto.request.PropertiesRequestDto;
+import com.agiles.flatelse.dto.response.PropertiesResponseDto;
 import com.agiles.flatelse.model.Properties;
 import com.agiles.flatelse.service.impl.PropertiesServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,24 +22,23 @@ public class PropertiesController {
 
 
     @PostMapping(value = "/add", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
-    public ResponseEntity<Properties> saveProperty(@ModelAttribute PropertiesRequestDto propertyRequestDTO) throws Exception {
+    public ResponseEntity<String> saveProperty(@ModelAttribute PropertiesRequestDto propertyRequestDTO) throws Exception {
 
-        Properties savedProperty = propertiesService.saveProperty(propertyRequestDTO,propertyRequestDTO.heroImage(),propertyRequestDTO.imageUrls());
+         propertiesService.saveProperty(propertyRequestDTO,propertyRequestDTO.heroImage(),propertyRequestDTO.imageUrls());
 
-
-        return new ResponseEntity<>(savedProperty, HttpStatus.CREATED);
+        return ResponseEntity.ok("Successfully Created");
     }
 
 
 
     @GetMapping("/all")
-    public List<Properties> getAllProperties() {
+    public List<PropertiesResponseDto> getAllProperties() {
         return propertiesService.getAllProperties();
     }
 
 
     @GetMapping("/{id}")
-    public Properties getPropertyById(@PathVariable Long id) {
+    public PropertiesResponseDto getPropertyById(@PathVariable Long id) {
         return propertiesService.getPropertyById(id).get();
     }
 
