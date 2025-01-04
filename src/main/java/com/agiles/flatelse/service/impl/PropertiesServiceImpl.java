@@ -55,6 +55,15 @@ public class PropertiesServiceImpl implements PropertiesService {
         properties.setRestrictions(propertiesRequestDto.restrictions());
         properties.setLongDescription(propertiesRequestDto.longDescription());
         properties.setShortDescription(propertiesRequestDto.shortDescription());
+        properties.setPropertySize(propertiesRequestDto.propertySize());
+        properties.setPropertyType(propertiesRequestDto.propertyType());
+        properties.setYearBuilt(propertiesRequestDto.yearBuilt());
+        properties.setPetFriendly(propertiesRequestDto.petFriendly());
+        properties.setAvailabilityStatus(propertiesRequestDto.availabilityStatus());
+        properties.setParking(propertiesRequestDto.parking());
+        properties.setOwnerName(propertiesRequestDto.ownerName());
+        properties.setOwnerContact(propertiesRequestDto.ownerContact());
+        properties.setFurnished(propertiesRequestDto.furnished());
         return properties;
 
     }
