@@ -1,4 +1,4 @@
-package com.agiles.flatelse.config;
+package com.agiles.flatelse.config.image;
 
 import com.cloudinary.Cloudinary;
 import org.springframework.context.annotation.Bean;

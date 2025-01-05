@@ -1,4 +1,4 @@
-package com.agiles.flatelse.config;
+package com.agiles.flatelse.config.image;
 
 import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.web.multipart.MultipartFile;
