@@ -12,7 +12,9 @@ public class Properties {
 
     private String location;
     private String price;
+    @Column(length = 500)
     private String shortDescription;
+    @Column(length = 5000)
     private String longDescription;
     private String features;
     private String restrictions;
