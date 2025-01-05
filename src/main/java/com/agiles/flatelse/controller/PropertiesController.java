@@ -21,14 +21,13 @@ public class PropertiesController {
     private PropertiesServiceImpl propertiesService;
 
 
-    @PostMapping(value = "/add", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+    @PostMapping(value = "/add", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public ResponseEntity<String> saveProperty(@ModelAttribute PropertiesRequestDto propertyRequestDTO) throws Exception {
 
-         propertiesService.saveProperty(propertyRequestDTO,propertyRequestDTO.heroImage(),propertyRequestDTO.imageUrls());
+        propertiesService.saveProperty(propertyRequestDTO, propertyRequestDTO.heroImage(), propertyRequestDTO.imageUrls());
 
         return ResponseEntity.ok("Successfully Created");
     }
-
 
 
     @GetMapping("/all")
@@ -42,26 +41,11 @@ public class PropertiesController {
         return propertiesService.getPropertyById(id).get();
     }
 
-//    // Endpoint to update property
-//    @PutMapping("/update/{id}")
-//    public Properties updateProperty(@PathVariable Long id,
-//                                     @RequestParam String location,
-//                                     @RequestParam String price,
-//                                     @RequestParam String shortDescription,
-//                                     @RequestParam String longDescription,
-//                                     @RequestParam String features,
-//                                     @RequestParam String restrictions,
-//                                     @RequestParam String heroImage,
-//                                     @RequestParam List<String> imageUrls,
-//                                     @RequestParam List<String> shortTitle,
-//                                     @RequestParam("file") MultipartFile file) throws Exception {
-//        // Create a property object with updated data
-//        Properties updatedProperty = new Properties(location, price, shortDescription, longDescription, features, restrictions, heroImage, imageUrls, shortTitle);
-//        updatedProperty.setId(id);
-//
-//        // Update the property in the database
-//        return propertiesService.updateProperty(updatedProperty, file);
-//    }
+    @PutMapping("Update")
+    public ResponseEntity<String> UpdateProperties(@RequestParam Long id, PropertiesRequestDto propertyRequestDTO) throws Exception {
+        propertiesService.updateProperty(id, propertyRequestDTO);
+        return ResponseEntity.ok("Successfully Updated");
+    }
 
     @DeleteMapping("/delete/{id}")
     public void deleteProperty(@PathVariable Long id) {

@@ -16,7 +16,7 @@ public interface PropertiesService {
 
     Optional<PropertiesResponseDto> getPropertyById(Long id);
 
-    PropertiesResponseDto updateProperty(Long id, Properties properties, MultipartFile heroImageFile, List<MultipartFile> additionalImagesFiles) throws Exception;
+    void updateProperty(Long id, PropertiesRequestDto propertiesRequestDto) throws Exception;
 
     void deleteProperty(Long id);
 

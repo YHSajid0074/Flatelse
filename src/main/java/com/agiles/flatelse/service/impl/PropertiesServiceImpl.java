@@ -81,8 +81,10 @@ public class PropertiesServiceImpl implements PropertiesService {
     }
 
     @Override
-    public PropertiesResponseDto updateProperty(Long id, Properties properties, MultipartFile heroImageFile, List<MultipartFile> additionalImagesFiles) throws Exception {
-        return null;
+    public void updateProperty(Long id, PropertiesRequestDto propertiesRequestDto)throws Exception {
+      Properties properties1=propertyRepository.findById(id).get();
+      Properties update=convertForUpdate(properties1,propertiesRequestDto);
+      propertyRepository.save(update);
     }
 
 
@@ -151,6 +153,41 @@ public class PropertiesServiceImpl implements PropertiesService {
     @Override
     public List<PropertiesResponseDto> searchByPetFriendly(Boolean petFriendly) {
         return propertyRepository.findByPetFriendly(petFriendly);
+    }
+
+    private Properties convertForUpdate(Properties properties, PropertiesRequestDto propertiesRequestDto) throws Exception {
+        // Upload the hero image to Cloudinary
+//        Map<String, Object> heroUploadResult = cloudneryImageService.upload(heroImageFile);
+//        String heroImageUrl = (String) heroUploadResult.get("secure_url");
+
+        // Upload additional images to Cloudinary and get their URLs
+//        List<String> imageUrls = new ArrayList<>();
+//        for (MultipartFile file : additionalImagesFiles) {
+//            Map<String, Object> uploadResult = cloudneryImageService.upload(file);
+//            String imageUrl = (String) uploadResult.get("secure_url");
+//            imageUrls.add(imageUrl);
+//        }
+
+
+//        properties.setHeroImage(heroImageUrl);
+//        properties.setImageUrls(imageUrls);
+        properties.setPrice(propertiesRequestDto.price());
+        properties.setLocation(propertiesRequestDto.location());
+        properties.setFeatures(propertiesRequestDto.features());
+        properties.setRestrictions(propertiesRequestDto.restrictions());
+        properties.setLongDescription(propertiesRequestDto.longDescription());
+        properties.setShortDescription(propertiesRequestDto.shortDescription());
+        properties.setPropertySize(propertiesRequestDto.propertySize());
+        properties.setPropertyType(propertiesRequestDto.propertyType());
+        properties.setYearBuilt(propertiesRequestDto.yearBuilt());
+        properties.setPetFriendly(propertiesRequestDto.petFriendly());
+        properties.setAvailabilityStatus(propertiesRequestDto.availabilityStatus());
+        properties.setParking(propertiesRequestDto.parking());
+        properties.setOwnerName(propertiesRequestDto.ownerName());
+        properties.setOwnerContact(propertiesRequestDto.ownerContact());
+        properties.setFurnished(propertiesRequestDto.furnished());
+        return properties;
+
     }
 
 }
