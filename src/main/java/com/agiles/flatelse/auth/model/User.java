@@ -1,6 +1,7 @@
 package com.agiles.flatelse.auth.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,6 +35,7 @@ public class User {
     private String email;
 
     @Column( nullable = false )
+    @NotEmpty
     private String password;
 
     @ManyToMany(

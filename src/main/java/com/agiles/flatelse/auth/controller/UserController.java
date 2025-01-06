@@ -3,6 +3,7 @@ package com.agiles.flatelse.auth.controller;
 import com.agiles.flatelse.auth.dto.request.UserRequestDTO;
 import com.agiles.flatelse.auth.dto.request.UserRoleRequestDTO;
 import com.agiles.flatelse.auth.dto.response.CustomUserResponseDTO;
+import com.agiles.flatelse.auth.repository.UserRepo;
 import com.agiles.flatelse.auth.service.UserServiceIMPL;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +15,10 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private UserServiceIMPL userService;
+    UserRepo userRepo;
 
-    public UserController( UserServiceIMPL userService ) {
+    public UserController( UserServiceIMPL userService ,UserRepo userRepo ) {
+        this.userRepo = userRepo;
         this.userService = userService;
     }
 
@@ -39,5 +42,10 @@ public class UserController {
     public ResponseEntity<String> setUserRoles(@RequestBody UserRoleRequestDTO requestDTO ) {
         userService.setUserRoles( requestDTO ) ;
         return ResponseEntity.ok("Successfully set user roles");
+    }
+    @DeleteMapping
+    public ResponseEntity<String>delete(@RequestParam Long id ) {
+        userRepo.deleteById( id );
+        return ResponseEntity.ok("Successfully deleted user");
     }
 }
