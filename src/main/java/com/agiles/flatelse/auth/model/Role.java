@@ -11,7 +11,6 @@ import java.util.Set;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 //@SuperBuilder
 //@SQLRestriction( "is_active = TRUE" )
