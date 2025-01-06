@@ -8,6 +8,7 @@ import java.util.Set;
  */
 
 public interface CustomUserResponseDTO {
+
     Long getId();
 
     String getUsername();

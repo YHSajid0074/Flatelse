@@ -53,8 +53,8 @@ public class UserController {
         return ResponseEntity.ok("Successfully deleted user");
     }
 
-    @PutMapping("update")
-    public ResponseEntity<String>Update(@RequestParam Long id, @RequestBody UserRequestDTO requestDTO ) throws IOException {
+    @PutMapping(value = "/update", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseEntity<String>Update(@RequestParam Long id, @ModelAttribute UserRequestDTO requestDTO ) throws IOException {
         userService.updateUser(id,requestDTO, requestDTO.profilpic());
         return ResponseEntity.ok("Successfully updated user");
     }
