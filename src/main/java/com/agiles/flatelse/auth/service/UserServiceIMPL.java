@@ -2,6 +2,7 @@ package com.agiles.flatelse.auth.service;
 
 import com.agiles.flatelse.auth.dto.request.UserRequestDTO;
 import com.agiles.flatelse.auth.dto.request.UserRoleRequestDTO;
+import com.agiles.flatelse.auth.dto.request.UserUpdateRequestDto;
 import com.agiles.flatelse.auth.dto.response.CustomUserResponseDTO;
 import com.agiles.flatelse.auth.model.Role;
 import com.agiles.flatelse.auth.model.User;
@@ -98,15 +99,31 @@ public class UserServiceIMPL implements UserService {
 
 
     @Override
-    public void updateUser(Long id,UserRequestDTO userRequestDTO,MultipartFile heroImageFile) throws IOException {
+    public void updateUser(Long id, UserUpdateRequestDto userRequestDTO, MultipartFile heroImageFile) throws IOException {
 
        User user=userRepository.findById( id ).get();
 
-       User updateUser = ConvertToEntity(user, userRequestDTO, heroImageFile);
+       User updateUser = ConvertToEntityUpdate(user, userRequestDTO, heroImageFile);
 
        userRepository.save( updateUser );
 
     }
+
+    public User ConvertToEntityUpdate(User user,UserUpdateRequestDto userRequestDTO,MultipartFile profilepic) throws IOException {
+        Map<String, Object> heroUploadResult = cloudneryImageService.upload(profilepic);
+        String profileImageUrl = (String) heroUploadResult.get("secure_url");
+        user.setBio(userRequestDTO.bio() );
+        user.setAddress( userRequestDTO.address() );
+        user.setPhone(userRequestDTO.phone() );
+        user.setSold(userRequestDTO.sold());
+        user.setProfession(userRequestDTO.profession());
+        user.setProfilpic(profileImageUrl);
+        user.setPropertyAdded(userRequestDTO.propertyAdded());
+        user.setFullname(userRequestDTO.fullname());
+
+        return user;
+    }
+
 
 
 

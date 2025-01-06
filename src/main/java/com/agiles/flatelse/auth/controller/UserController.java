@@ -2,6 +2,7 @@ package com.agiles.flatelse.auth.controller;
 
 import com.agiles.flatelse.auth.dto.request.UserRequestDTO;
 import com.agiles.flatelse.auth.dto.request.UserRoleRequestDTO;
+import com.agiles.flatelse.auth.dto.request.UserUpdateRequestDto;
 import com.agiles.flatelse.auth.dto.response.CustomUserResponseDTO;
 import com.agiles.flatelse.auth.repository.UserRepo;
 import com.agiles.flatelse.auth.service.UserServiceIMPL;
@@ -54,7 +55,7 @@ public class UserController {
     }
 
     @PutMapping(value = "/update", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseEntity<String>Update(@RequestParam Long id, @ModelAttribute UserRequestDTO requestDTO ) throws IOException {
+    public ResponseEntity<String>Update(@RequestParam Long id, @ModelAttribute UserUpdateRequestDto requestDTO ) throws IOException {
         userService.updateUser(id,requestDTO, requestDTO.profilpic());
         return ResponseEntity.ok("Successfully updated user");
     }
