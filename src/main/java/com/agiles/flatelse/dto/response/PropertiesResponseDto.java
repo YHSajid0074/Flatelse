@@ -36,7 +36,7 @@ public interface PropertiesResponseDto {
 
     Boolean getPetFriendly();
 
-    String getAvailabilityStatus();
+    Boolean getAvailabilityStatus();
 
     String getOwnerName();
 

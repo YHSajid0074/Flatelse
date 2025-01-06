@@ -24,7 +24,7 @@ public class Properties {
     private Boolean furnished;
     private Integer yearBuilt;
     private Boolean petFriendly;
-    private String availabilityStatus;
+    private Boolean availabilityStatus;
     private String ownerName;
     private String ownerContact;
     // Hero Image (main image) field
@@ -47,7 +47,7 @@ public class Properties {
     public Properties(String location, String price, String shortDescription, String longDescription,
                       String features, String restrictions, List<String> shortTitle,String propertyType,
                       String propertySize,Boolean parking,Boolean furnished,Integer yearBuilt,
-                      Boolean petFriendly,String availabilityStatus,String ownerName,String ownerContact) {
+                      Boolean petFriendly,Boolean availabilityStatus,String ownerName,String ownerContact) {
         this.location = location;
         this.price = price;
         this.shortDescription = shortDescription;
@@ -196,11 +196,11 @@ public class Properties {
         this.petFriendly = petFriendly;
     }
 
-    public String getAvailabilityStatus() {
+    public Boolean getAvailabilityStatus() {
         return availabilityStatus;
     }
 
-    public void setAvailabilityStatus(String availabilityStatus) {
+    public void setAvailabilityStatus(Boolean availabilityStatus) {
         this.availabilityStatus = availabilityStatus;
     }
 
