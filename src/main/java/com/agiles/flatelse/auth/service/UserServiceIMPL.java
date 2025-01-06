@@ -53,6 +53,7 @@ public class UserServiceIMPL implements UserService {
        user.setProfession(userRequestDTO.profession());
        user.setProfilpic(profileImageUrl);
        user.setPropertyAdded(userRequestDTO.propertyAdded());
+       user.setFullname(userRequestDTO.fullname());
 
        return user;
    }

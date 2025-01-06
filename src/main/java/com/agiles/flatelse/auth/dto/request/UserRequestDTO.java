@@ -34,7 +34,9 @@ public record UserRequestDTO(
 
         Long propertyAdded,
 
-        String profession
+        String profession,
+
+        String fullname
 
 ) implements Serializable {
 }

@@ -52,6 +52,8 @@ public class User {
 
     private String profession;
 
+    private String fullname;
+
     @ManyToMany(
             cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH },
             fetch = FetchType.EAGER
@@ -158,6 +160,14 @@ public class User {
 
     public void setProfession(String profession) {
         this.profession = profession;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
 
