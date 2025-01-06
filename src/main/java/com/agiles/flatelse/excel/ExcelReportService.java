@@ -30,7 +30,7 @@ public class ExcelReportService {
         row.createCell(2).setCellValue("Email");
         row.createCell(3).setCellValue("Password");
 
-        int dataRow = 0;
+        int dataRow = 1;
         for (User user : users) {
             HSSFRow row1 = sheet.createRow(dataRow);
             row1.createCell(0).setCellValue(user.getId());
@@ -38,6 +38,15 @@ public class ExcelReportService {
             row1.createCell(3).setCellValue(user.getPassword());
             row1.createCell(2).setCellValue(user.getEmail());
             dataRow++;
+        }
+        sheet.setColumnWidth(0, 4000); // ID column
+        sheet.setColumnWidth(1, 8000); // Name column
+        sheet.setColumnWidth(2, 10000); // Email column
+        sheet.setColumnWidth(3, 10000); // Password column
+
+        // Optionally auto-size all columns based on content
+        for (int i = 0; i < 4; i++) {
+            sheet.autoSizeColumn(i);
         }
         ServletOutputStream ops= response.getOutputStream();
        workbook.write(ops);
