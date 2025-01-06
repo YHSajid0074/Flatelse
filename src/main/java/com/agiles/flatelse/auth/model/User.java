@@ -38,6 +38,20 @@ public class User {
     @NotEmpty
     private String password;
 
+    private String profilpic;
+
+    private String address;
+
+    private String phone;
+
+    private String bio;
+
+    private Long sold;
+
+    private Long propertyAdded;
+
+    private String profession;
+
     @ManyToMany(
             cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH },
             fetch = FetchType.EAGER
@@ -89,6 +103,63 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    public String getProfilpic() {
+        return profilpic;
+    }
+
+    public void setProfilpic(String profilpic) {
+        this.profilpic = profilpic;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public Long getSold() {
+        return sold;
+    }
+
+    public void setSold(Long sold) {
+        this.sold = sold;
+    }
+
+    public Long getPropertyAdded() {
+        return propertyAdded;
+    }
+
+    public void setPropertyAdded(Long propertyAdded) {
+        this.propertyAdded = propertyAdded;
+    }
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
+
 
 
 }

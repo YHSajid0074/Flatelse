@@ -6,9 +6,13 @@ import com.agiles.flatelse.auth.dto.response.CustomUserResponseDTO;
 import com.agiles.flatelse.auth.repository.UserRepo;
 import com.agiles.flatelse.auth.service.UserServiceIMPL;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping( "/User" )
@@ -22,9 +26,9 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping()
-    public ResponseEntity< String > create( UserRequestDTO requestDto ) {
-        userService.create(requestDto);
+    @PostMapping(value = "/add", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseEntity< String > create(@ModelAttribute UserRequestDTO requestDto) throws IOException {
+        userService.create(requestDto,requestDto.profilpic());
         return ResponseEntity.ok("Successfully created user");
     }
 
@@ -48,4 +52,11 @@ public class UserController {
         userRepo.deleteById( id );
         return ResponseEntity.ok("Successfully deleted user");
     }
+
+    @PutMapping("update")
+    public ResponseEntity<String>Update(@RequestParam Long id, @RequestBody UserRequestDTO requestDTO ) throws IOException {
+        userService.updateUser(id,requestDTO, requestDTO.profilpic());
+        return ResponseEntity.ok("Successfully updated user");
+    }
+
 }
