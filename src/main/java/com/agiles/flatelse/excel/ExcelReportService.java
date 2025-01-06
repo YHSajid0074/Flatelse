@@ -39,15 +39,12 @@ public class ExcelReportService {
             row1.createCell(2).setCellValue(user.getEmail());
             dataRow++;
         }
-        sheet.setColumnWidth(0, 4000); // ID column
-        sheet.setColumnWidth(1, 8000); // Name column
-        sheet.setColumnWidth(2, 10000); // Email column
-        sheet.setColumnWidth(3, 10000); // Password column
 
-        // Optionally auto-size all columns based on content
-        for (int i = 0; i < 4; i++) {
-            sheet.autoSizeColumn(i);
-        }
+        sheet.setColumnWidth(0, 4000); // ID column width
+        sheet.setColumnWidth(1, 8000); // Name column width
+        sheet.setColumnWidth(2, 12000); // Email column width
+        sheet.setColumnWidth(3, 8000);
+
         ServletOutputStream ops= response.getOutputStream();
        workbook.write(ops);
        ops.close();
