@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class JWTService {
-    @Value( "${application.security.jwt.secretKey}" )
+    @Value( "thisIsA64ByteSecretKey12345678901234567890123456789012345678901234567890" )
     private String secretKey;
 
     @Value( "86400000" )
@@ -98,7 +98,15 @@ public class JWTService {
     }
 
     private SecretKey getSingInKey() {
-        byte[] keyBytes = Decoders.BASE64.decode( secretKey );
-        return Keys.hmacShaKeyFor( keyBytes );
+        // Ensure your 'secretKey' is at least 256 bits (32 bytes) long
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+
+        // If the key is less than 256 bits (32 bytes), use a default size
+        if (keyBytes.length < 32) {
+            throw new IllegalArgumentException("The provided secret key is too short. It must be at least 256 bits.");
+        }
+
+        return Keys.hmacShaKeyFor(keyBytes); // This creates a valid key for HS256
     }
+
 }
