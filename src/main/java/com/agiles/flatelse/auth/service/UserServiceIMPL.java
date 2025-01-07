@@ -109,6 +109,11 @@ public class UserServiceIMPL implements UserService {
 
     }
 
+    @Override
+    public CustomUserResponseDTO searchByUsername(String username) {
+        return userRepository.searchByUsername( username );
+    }
+
     public User ConvertToEntityUpdate(User user,UserUpdateRequestDto userRequestDTO,MultipartFile profilepic) throws IOException {
         Map<String, Object> heroUploadResult = cloudneryImageService.upload(profilepic);
         String profileImageUrl = (String) heroUploadResult.get("secure_url");
@@ -123,6 +128,8 @@ public class UserServiceIMPL implements UserService {
 
         return user;
     }
+
+
 
 
 

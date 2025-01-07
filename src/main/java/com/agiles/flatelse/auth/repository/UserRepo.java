@@ -14,7 +14,10 @@ public interface UserRepo extends JpaRepository<User, Long > {
     @EntityGraph( attributePaths = { "roles" } )
     User findByUsernameOrEmail(String username, String email );
 
-    boolean existsByUsername( String username );
+    @Query("""
+            SELECT u FROM User u where u.username=:username
+            """)
+    CustomUserResponseDTO searchByUsername( String username );
 
     boolean existsByEmail( String email );
 

@@ -60,5 +60,10 @@ public class UserController {
         return ResponseEntity.ok("Successfully updated user");
     }
 
+    @GetMapping("/username")
+    public ResponseEntity<CustomUserResponseDTO> searchByUserName(@RequestParam String username) {
+        return ResponseEntity.ok(userService.searchByUsername(username));
+    }
+
 
 }
