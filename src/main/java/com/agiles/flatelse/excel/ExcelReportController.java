@@ -2,9 +2,9 @@ package com.agiles.flatelse.excel;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
@@ -23,4 +23,13 @@ public class ExcelReportController {
         excelReportService.generateExcelReport(response);
     }
 
+    @PostMapping(value = "/add", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public String uploadExcelFile(@RequestParam("file") MultipartFile file) {
+        try {
+            excelReportService.saveExcelData(file);
+            return "File uploaded and data saved to database successfully!";
+        } catch (Exception e) {
+            return "Error occurred: " + e.getMessage();
+        }
+    }
 }
