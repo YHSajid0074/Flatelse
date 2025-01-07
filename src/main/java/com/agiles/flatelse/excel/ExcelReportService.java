@@ -52,7 +52,7 @@ public class ExcelReportService {
         sheet.setColumnWidth(0, 4000); // ID column width
         sheet.setColumnWidth(1, 8000); // Name column width
         sheet.setColumnWidth(2, 8000); // Email column width
-        sheet.setColumnWidth(3, 8000);
+        sheet.setColumnWidth(3, 10000);
 
         ServletOutputStream ops= response.getOutputStream();
        workbook.write(ops);
