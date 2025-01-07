@@ -34,7 +34,7 @@ public class UserController {
     }
 
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'MODERATOR')")
+//    @PreAuthorize("hasAnyRole('ADMIN', 'MODERATOR')")
     @GetMapping( "{id}" )
     public ResponseEntity<CustomUserResponseDTO> readOne(@PathVariable( "id" ) Long id ) {
         return ResponseEntity
@@ -42,7 +42,7 @@ public class UserController {
                 .body( userService.readOne( id ) );
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+//    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping( "change-roles" )
     public ResponseEntity<String> setUserRoles(@RequestBody UserRoleRequestDTO requestDTO ) {
         userService.setUserRoles( requestDTO ) ;
