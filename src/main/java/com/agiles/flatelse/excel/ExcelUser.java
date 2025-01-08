@@ -7,7 +7,6 @@ import jakarta.validation.constraints.NotEmpty;
 public class ExcelUser {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)

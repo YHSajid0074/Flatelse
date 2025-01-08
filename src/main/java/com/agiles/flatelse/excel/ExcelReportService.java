@@ -83,41 +83,38 @@ public class ExcelReportService {
 
                 ExcelUser user = new ExcelUser();
 
-                // Safely get ID
+
                 Cell idCell = row.getCell(0);
                 if (idCell != null && idCell.getCellType() == CellType.NUMERIC) {
                     user.setId((long) idCell.getNumericCellValue());
                 } else {
-                    // Handle invalid or missing ID (you can throw an exception or skip the row)
                     continue;
                 }
 
-                // Safely get username
                 Cell usernameCell = row.getCell(1);
                 if (usernameCell != null) {
                     user.setUsername(usernameCell.getStringCellValue());
                 }
 
-                // Safely get email
-//                Cell emailCell = row.getCell(2);
-//                if (emailCell != null) {
-//                    user.setEmail(emailCell.getStringCellValue());
-//                }
-//
-//                // Safely get password
-//                Cell passwordCell = row.getCell(3);
-//                if (passwordCell != null) {
-//                    user.setPassword(passwordCell.getStringCellValue());
-//                }
+
+                Cell emailCell = row.getCell(2);
+                if (emailCell != null) {
+                    user.setEmail(emailCell.getStringCellValue());
+                }
+
+
+                Cell passwordCell = row.getCell(3);
+                if (passwordCell != null) {
+                    user.setPassword(passwordCell.getStringCellValue());
+                }
 
                 users.add(user);
             }
 
-            // Save all the users in the database
             excelRepo.saveAll(users);
 
         } catch (Exception e) {
-            // Log the exception for debugging
+
             System.err.println("Error while reading Excel file: " + e.getMessage());
             e.printStackTrace();
             throw new RuntimeException("Failed to read Excel file", e);
