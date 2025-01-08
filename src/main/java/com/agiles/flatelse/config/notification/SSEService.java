@@ -1,4 +1,4 @@
-package com.agiles.flatelse.notification;
+package com.agiles.flatelse.config.notification;
 
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;

@@ -1,4 +1,4 @@
-package com.agiles.flatelse.excel;
+package com.agiles.flatelse.config.excel;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

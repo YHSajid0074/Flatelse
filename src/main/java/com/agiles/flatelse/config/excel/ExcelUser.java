@@ -1,4 +1,4 @@
-package com.agiles.flatelse.excel;
+package com.agiles.flatelse.config.excel;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;

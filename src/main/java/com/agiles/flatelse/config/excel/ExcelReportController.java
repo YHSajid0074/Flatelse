@@ -1,4 +1,4 @@
-package com.agiles.flatelse.excel;
+package com.agiles.flatelse.config.excel;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
