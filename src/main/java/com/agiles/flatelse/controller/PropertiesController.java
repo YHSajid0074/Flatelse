@@ -41,8 +41,8 @@ public class PropertiesController {
         return propertiesService.getPropertyById(id).get();
     }
 
-    @PutMapping("Update")
-    public ResponseEntity<String> UpdateProperties(@RequestParam Long id, PropertiesRequestDto propertyRequestDTO) throws Exception {
+    @PutMapping(value = "/update", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseEntity<String> UpdateProperties(@RequestParam Long id,@ModelAttribute PropertiesRequestDto propertyRequestDTO) throws Exception {
         propertiesService.updateProperty(id, propertyRequestDTO);
         return ResponseEntity.ok("Successfully Updated");
     }

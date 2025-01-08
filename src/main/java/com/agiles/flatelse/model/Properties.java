@@ -29,7 +29,6 @@ public class Properties {
     private String ownerContact;
     // Hero Image (main image) field
     private String heroImage;
-
     // List of image URLs for additional images
     @ElementCollection
     @CollectionTable(name = "property_image_urls", joinColumns = @JoinColumn(name = "property_id"))

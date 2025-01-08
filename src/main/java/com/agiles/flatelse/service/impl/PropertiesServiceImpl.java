@@ -156,21 +156,21 @@ public class PropertiesServiceImpl implements PropertiesService {
     }
 
     private Properties convertForUpdate(Properties properties, PropertiesRequestDto propertiesRequestDto) throws Exception {
-        // Upload the hero image to Cloudinary
-//        Map<String, Object> heroUploadResult = cloudneryImageService.upload(heroImageFile);
-//        String heroImageUrl = (String) heroUploadResult.get("secure_url");
 
-        // Upload additional images to Cloudinary and get their URLs
-//        List<String> imageUrls = new ArrayList<>();
-//        for (MultipartFile file : additionalImagesFiles) {
-//            Map<String, Object> uploadResult = cloudneryImageService.upload(file);
-//            String imageUrl = (String) uploadResult.get("secure_url");
-//            imageUrls.add(imageUrl);
-//        }
+        Map<String, Object> heroUploadResult = cloudneryImageService.upload(propertiesRequestDto.heroImage());
+        String heroImageUrl = (String) heroUploadResult.get("secure_url");
 
 
-//        properties.setHeroImage(heroImageUrl);
-//        properties.setImageUrls(imageUrls);
+        List<String> imageUrls = new ArrayList<>();
+        for (MultipartFile file : propertiesRequestDto.imageUrls()) {
+            Map<String, Object> uploadResult = cloudneryImageService.upload(file);
+            String imageUrl = (String) uploadResult.get("secure_url");
+            imageUrls.add(imageUrl);
+        }
+
+
+        properties.setHeroImage(heroImageUrl);
+        properties.setImageUrls(imageUrls);
         properties.setPrice(propertiesRequestDto.price());
         properties.setLocation(propertiesRequestDto.location());
         properties.setFeatures(propertiesRequestDto.features());
