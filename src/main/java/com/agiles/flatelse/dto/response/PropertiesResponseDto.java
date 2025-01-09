@@ -41,5 +41,7 @@ public interface PropertiesResponseDto {
     String getOwnerName();
 
     String getOwnerContact();
+
+    String getAdditionalDetails();
 }
 

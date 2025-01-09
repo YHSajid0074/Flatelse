@@ -31,8 +31,6 @@ public interface CustomUserResponseDTO {
 
     String getFullname();
 
-    String getAdditionalDetails();
-
     Set< RoleInfo > getRoles();
 
     interface RoleInfo {

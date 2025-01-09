@@ -64,6 +64,7 @@ public class PropertiesServiceImpl implements PropertiesService {
         properties.setOwnerName(propertiesRequestDto.ownerName());
         properties.setOwnerContact(propertiesRequestDto.ownerContact());
         properties.setFurnished(propertiesRequestDto.furnished());
+        properties.setAdditionalDetails(propertiesRequestDto.additionalDetails());
         return properties;
 
     }

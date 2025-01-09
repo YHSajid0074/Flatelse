@@ -56,7 +56,6 @@ public class UserServiceIMPL implements UserService {
        user.setProfilpic(profileImageUrl);
        user.setPropertyAdded(userRequestDTO.propertyAdded());
        user.setFullname(userRequestDTO.fullname());
-       user.setAdditionalDetails(userRequestDTO.additionalDetails());
 
        return user;
    }

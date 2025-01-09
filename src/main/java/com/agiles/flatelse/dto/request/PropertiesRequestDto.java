@@ -23,7 +23,8 @@ public record PropertiesRequestDto(
         Boolean petFriendly,
         Boolean availabilityStatus,
         String ownerName,
-        String ownerContact
+        String ownerContact,
+        String additionalDetails
 ) {
 
 }

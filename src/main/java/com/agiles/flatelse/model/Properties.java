@@ -28,6 +28,7 @@ public class Properties {
     private Boolean availabilityStatus;
     private String ownerName;
     private String ownerContact;
+    private String additionalDetails;
     // Hero Image (main image) field
     private String heroImage;
     // List of image URLs for additional images
@@ -224,6 +225,14 @@ public class Properties {
 
     public void setOwnerContact(String ownerContact) {
         this.ownerContact = ownerContact;
+    }
+
+    public String getAdditionalDetails() {
+        return additionalDetails;
+    }
+
+    public void setAdditionalDetails(String additionalDetails) {
+        this.additionalDetails = additionalDetails;
     }
 
 }
