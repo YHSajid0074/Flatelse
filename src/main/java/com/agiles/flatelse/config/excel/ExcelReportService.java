@@ -57,7 +57,12 @@ public class ExcelReportService {
             }else{
                 row1.createCell(1).setCellValue(" ");
             }
-            row1.createCell(2).setCellValue(excelUser.getUsername());
+            String username = excelUser.getUsername();
+            if(!username.isEmpty()) {
+                row1.createCell(2).setCellValue(username);
+            }else{
+                row1.createCell(2).setCellValue(" ");
+            }
 
 //            Cell passwordCell = row1.createCell(3);
 //            passwordCell.setCellValue(user.getPassword());
