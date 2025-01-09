@@ -15,19 +15,19 @@ public class ExcelUser {
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
-    @NotEmpty
-    private String password;
+//    @Column(nullable = false)
+//    @NotEmpty
+//    private String password;
 
     // Default constructor
     public ExcelUser() {
     }
 
     // Parameterized constructor
-    public ExcelUser(String username, String email, String password) {
+    public ExcelUser(String username, String email) {
         this.username = username;
         this.email = email;
-        this.password = password;
+//        this.password = password;
     }
 
     // Getter and Setter for id
@@ -58,12 +58,12 @@ public class ExcelUser {
     }
 
     // Getter and Setter for password
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
 }
 

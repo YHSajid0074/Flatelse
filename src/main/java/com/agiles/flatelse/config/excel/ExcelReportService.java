@@ -2,6 +2,8 @@ package com.agiles.flatelse.config.excel;
 
 import com.agiles.flatelse.auth.model.User;
 import com.agiles.flatelse.auth.repository.UserRepo;
+import com.agiles.flatelse.model.Properties;
+import com.agiles.flatelse.repository.PropertyRepository;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
@@ -21,33 +23,45 @@ import java.util.List;
 public class ExcelReportService {
     public UserRepo userRepo;
     public ExcelRepo excelRepo;
-    public ExcelReportService(UserRepo userRepo, ExcelRepo excelRepo) {
+    PropertyRepository propertyRepository;
+    public ExcelReportService(UserRepo userRepo, ExcelRepo excelRepo,PropertyRepository propertyRepository) {
         this.userRepo = userRepo;
         this.excelRepo= excelRepo;
+        this.propertyRepository = propertyRepository;
     }
     public void generateExcelReport(HttpServletResponse response) throws IOException {
-        List<User> users = userRepo.findAll();
+        List<Properties> properties = propertyRepository.findAll();
         HSSFWorkbook workbook = new HSSFWorkbook();
-        HSSFSheet sheet = workbook.createSheet("Users");
+        HSSFSheet sheet = workbook.createSheet("Properties");
         HSSFRow row = sheet.createRow(0);
         row.createCell(0).setCellValue("ID");
-        row.createCell(1).setCellValue("Name");
-        row.createCell(2).setCellValue("Email");
-        row.createCell(3).setCellValue("Password");
+        row.createCell(1).setCellValue("Features");
+        row.createCell(2).setCellValue("Location");
 
         row.setHeightInPoints(25);
         CellStyle wrapStyle = workbook.createCellStyle();
-        wrapStyle.setWrapText(true); // Enable text wrapping
+        wrapStyle.setWrapText(true);
 
         int dataRow = 1;
-        for (User user : users) {
+        for (Properties properties1 : properties) {
             HSSFRow row1 = sheet.createRow(dataRow);
-            row1.createCell(0).setCellValue(user.getId());
-            row1.createCell(1).setCellValue(user.getUsername());
-            row1.createCell(2).setCellValue(user.getEmail());
-            Cell passwordCell = row1.createCell(3);
-            passwordCell.setCellValue(user.getPassword());
-            passwordCell.setCellStyle(wrapStyle);
+            Long id=properties1.getId();
+            if(id != null) {
+                row1.createCell(0).setCellValue(id);
+            }else{
+                row1.createCell(0).setCellValue(" ");
+            }
+            String features = properties1.getFeatures();
+            if(!features.isEmpty()) {
+                row1.createCell(1).setCellValue(features);
+            }else{
+                row1.createCell(1).setCellValue(" ");
+            }
+            row1.createCell(2).setCellValue(properties1.getLocation());
+
+//            Cell passwordCell = row1.createCell(3);
+//            passwordCell.setCellValue(user.getPassword());
+//            passwordCell.setCellStyle(wrapStyle);
             row1.setHeightInPoints(30);
             dataRow++;
         }
@@ -89,22 +103,22 @@ public class ExcelReportService {
                     continue;
                 }
 
-                Cell usernameCell = row.getCell(1);
+                Cell usernameCell = row.getCell(2);
                 if (usernameCell != null) {
                     user.setUsername(usernameCell.getStringCellValue());
                 }
 
 
-                Cell emailCell = row.getCell(2);
+                Cell emailCell = row.getCell(1);
                 if (emailCell != null) {
                     user.setEmail(emailCell.getStringCellValue());
                 }
 
 
-                Cell passwordCell = row.getCell(3);
-                if (passwordCell != null) {
-                    user.setPassword(passwordCell.getStringCellValue());
-                }
+//                Cell passwordCell = row.getCell(3);
+//                if (passwordCell != null) {
+//                    user.setPassword(passwordCell.getStringCellValue());
+//                }
 
                 users.add(user);
             }
