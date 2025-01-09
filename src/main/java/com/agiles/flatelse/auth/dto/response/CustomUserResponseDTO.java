@@ -29,9 +29,11 @@ public interface CustomUserResponseDTO {
 
     String getProfession();
 
-    Set< RoleInfo > getRoles();
-
     String getFullName();
+
+    String getAdditionalDetails();
+
+    Set< RoleInfo > getRoles();
 
     interface RoleInfo {
         Long getId();

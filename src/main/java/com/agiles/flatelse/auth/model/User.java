@@ -56,6 +56,9 @@ public class User {
 
     private Status status;
 
+    private String additionalDetails;
+
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
      private Set<Properties>properties;
 
@@ -183,6 +186,12 @@ public class User {
         this.status = status;
     }
 
+    public String getAdditionalDetails() {
+        return additionalDetails;
+    }
 
+    public void setAdditionalDetails(String additionalDetails) {
+        this.additionalDetails = additionalDetails;
+    }
 
 }

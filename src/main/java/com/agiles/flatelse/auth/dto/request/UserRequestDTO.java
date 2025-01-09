@@ -36,7 +36,9 @@ public record UserRequestDTO(
 
         String profession,
 
-        String fullname
+        String fullname,
+
+        String additionalDetails
 
 ) implements Serializable {
 }
