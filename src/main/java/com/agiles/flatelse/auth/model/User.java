@@ -1,17 +1,17 @@
 package com.agiles.flatelse.auth.model;
 
+
+import com.agiles.flatelse.model.Properties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
-@Getter
-@Setter
-@AllArgsConstructor
+
+import java.util.*;
+
 @NoArgsConstructor
 @Entity
 @Table( name = "_user" )
@@ -55,6 +55,9 @@ public class User {
     private String fullname;
 
     private Status status;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+     private Set<Properties>properties;
 
     @ManyToMany(
             cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH },

@@ -1,5 +1,6 @@
 package com.agiles.flatelse.model;
 
+import com.agiles.flatelse.auth.model.User;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -34,6 +35,12 @@ public class Properties {
     @CollectionTable(name = "property_image_urls", joinColumns = @JoinColumn(name = "property_id"))
     @Column(name = "image_url")
     private List<String> imageUrls;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id") // Foreign key column in the Product table
+    private User user;
+
+
 
     // List of short titles for each additional image
     @ElementCollection
