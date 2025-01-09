@@ -51,13 +51,13 @@ public class ExcelReportService {
             }else{
                 row1.createCell(0).setCellValue(" ");
             }
-            String features = excelUser.getUsername();
+            String features = excelUser.getEmail();
             if(!features.isEmpty()) {
                 row1.createCell(1).setCellValue(features);
             }else{
                 row1.createCell(1).setCellValue(" ");
             }
-            row1.createCell(2).setCellValue(excelUser.getEmail());
+            row1.createCell(2).setCellValue(excelUser.getUsername());
 
 //            Cell passwordCell = row1.createCell(3);
 //            passwordCell.setCellValue(user.getPassword());
