@@ -54,6 +54,8 @@ public class User {
 
     private String fullname;
 
+    private Status status;
+
     @ManyToMany(
             cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH },
             fetch = FetchType.EAGER
@@ -168,6 +170,14 @@ public class User {
 
     public void setFullname(String fullname) {
         this.fullname = fullname;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
 

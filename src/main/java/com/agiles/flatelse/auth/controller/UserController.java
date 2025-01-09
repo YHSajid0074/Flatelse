@@ -4,16 +4,21 @@ import com.agiles.flatelse.auth.dto.request.UserRequestDTO;
 import com.agiles.flatelse.auth.dto.request.UserRoleRequestDTO;
 import com.agiles.flatelse.auth.dto.request.UserUpdateRequestDto;
 import com.agiles.flatelse.auth.dto.response.CustomUserResponseDTO;
+import com.agiles.flatelse.auth.model.User;
 import com.agiles.flatelse.auth.repository.UserRepo;
 import com.agiles.flatelse.auth.service.UserServiceIMPL;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping( "/User" )
@@ -64,6 +69,27 @@ public class UserController {
     public ResponseEntity<CustomUserResponseDTO> searchByUserName(@PathVariable("username") String username) {
         return ResponseEntity.ok(userService.searchByUsername(username));
     }
+    @MessageMapping("/user.addUser")
+    @SendTo("/user/public")
+    public User addUser(
+            @Payload User user
+    ) {
+        userService.saveActiveUser(user);
+        return user;
+    }
 
+    @MessageMapping("/user.disconnectUser")
+    @SendTo("/user/public")
+    public User disconnectUser(
+            @Payload User user
+    ) {
+        userService.disconnect(user);
+        return user;
+    }
+
+    @GetMapping("/users/connected")
+    public ResponseEntity<List<User>> findConnectedUsers() {
+        return ResponseEntity.ok(userService.findConnectedUsers());
+    }
 
 }

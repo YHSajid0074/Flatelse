@@ -1,4 +1,4 @@
-package com.agiles.flatelse.config.message.config;
+package com.agiles.flatelse.config.chat.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Configuration;

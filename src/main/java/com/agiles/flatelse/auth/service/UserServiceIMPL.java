@@ -5,6 +5,7 @@ import com.agiles.flatelse.auth.dto.request.UserRoleRequestDTO;
 import com.agiles.flatelse.auth.dto.request.UserUpdateRequestDto;
 import com.agiles.flatelse.auth.dto.response.CustomUserResponseDTO;
 import com.agiles.flatelse.auth.model.Role;
+import com.agiles.flatelse.auth.model.Status;
 import com.agiles.flatelse.auth.model.User;
 import com.agiles.flatelse.auth.repository.RoleRepo;
 import com.agiles.flatelse.auth.repository.UserRepo;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -130,7 +132,22 @@ public class UserServiceIMPL implements UserService {
 
 
 
+    public void saveActiveUser(User user) {
+        user.setStatus(Status.ONLINE);
+        userRepository.save(user);
+    }
 
+    public void disconnect(User user) {
+        User storedUser = userRepository.findByUsername(user.getUsername());
+        if (storedUser != null) {
+            storedUser.setStatus(Status.OFFLINE);
+            userRepository.save(storedUser);
+        }
+    }
+
+    public List<User> findConnectedUsers() {
+        return userRepository.findAllByStatus(Status.ONLINE);
+    }
 
 
 }
