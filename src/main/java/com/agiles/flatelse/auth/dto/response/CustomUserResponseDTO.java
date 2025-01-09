@@ -29,7 +29,7 @@ public interface CustomUserResponseDTO {
 
     String getProfession();
 
-    String getFullName();
+    String getFullname();
 
     String getAdditionalDetails();
 
