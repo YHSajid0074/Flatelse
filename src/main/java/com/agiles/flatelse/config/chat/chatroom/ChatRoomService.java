@@ -26,7 +26,6 @@ public class ChatRoomService {
                         var chatId = createChatId(senderId, recipientId);
                         return Optional.of(chatId);
                     }
-
                     return  Optional.empty();
                 });
     }
