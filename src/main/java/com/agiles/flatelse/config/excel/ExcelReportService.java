@@ -30,7 +30,7 @@ public class ExcelReportService {
         this.propertyRepository = propertyRepository;
     }
     public void generateExcelReport(HttpServletResponse response) throws IOException {
-        List<Properties> properties = propertyRepository.findAll();
+        List<ExcelUser> ExcelUserss = excelRepo.findAll();
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("Properties");
         HSSFRow row = sheet.createRow(0);
@@ -43,21 +43,21 @@ public class ExcelReportService {
         wrapStyle.setWrapText(true);
 
         int dataRow = 1;
-        for (Properties properties1 : properties) {
+        for (ExcelUser excelUser : ExcelUserss) {
             HSSFRow row1 = sheet.createRow(dataRow);
-            Long id=properties1.getId();
+            Long id=excelUser.getId();
             if(id != null) {
                 row1.createCell(0).setCellValue(id);
             }else{
                 row1.createCell(0).setCellValue(" ");
             }
-            String features = properties1.getFeatures();
+            String features = excelUser.getUsername();
             if(!features.isEmpty()) {
                 row1.createCell(1).setCellValue(features);
             }else{
                 row1.createCell(1).setCellValue(" ");
             }
-            row1.createCell(2).setCellValue(properties1.getLocation());
+            row1.createCell(2).setCellValue(excelUser.getEmail());
 
 //            Cell passwordCell = row1.createCell(3);
 //            passwordCell.setCellValue(user.getPassword());
