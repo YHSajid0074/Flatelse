@@ -100,18 +100,22 @@ public class ExcelReportService {
                 if (idCell != null && idCell.getCellType() == CellType.NUMERIC) {
                     user.setId((long) idCell.getNumericCellValue());
                 } else {
-                    continue;
+                    user.setId(null);
                 }
 
                 Cell usernameCell = row.getCell(2);
                 if (usernameCell != null) {
                     user.setUsername(usernameCell.getStringCellValue());
+                }else{
+                    user.setUsername(" ");
                 }
 
 
                 Cell emailCell = row.getCell(1);
                 if (emailCell != null) {
                     user.setEmail(emailCell.getStringCellValue());
+                }else{
+                    user.setEmail(" ");
                 }
 
 
