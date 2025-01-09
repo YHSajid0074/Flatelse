@@ -31,6 +31,8 @@ public interface CustomUserResponseDTO {
 
     Set< RoleInfo > getRoles();
 
+    String getFullName();
+
     interface RoleInfo {
         Long getId();
 
