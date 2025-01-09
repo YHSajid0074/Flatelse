@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -88,19 +89,22 @@ public class ExcelReportService {
     public void saveExcelData(MultipartFile file) {
         try (InputStream inputStream = file.getInputStream()) {
             Workbook workbook = WorkbookFactory.create(inputStream);
-            Sheet sheet = workbook.getSheetAt(0); // Get the first sheet
+            Sheet sheet = workbook.getSheetAt(0);
 
             List<ExcelUser> users = new ArrayList<>();
-            for (int i = 1; i <= sheet.getLastRowNum(); i++) { // Start from row 1 to skip header
+            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                 Row row = sheet.getRow(i);
 
                 if (row == null) {
-                    continue; // Skip empty rows
+                    continue;
                 }
 
                 ExcelUser user = new ExcelUser();
-
-
+                Iterator<Cell> cellIterator = row.cellIterator();
+                while (cellIterator.hasNext()) {
+                    Cell cell = cellIterator.next();
+//                    System.out.println(cellIterator.next().getCellType().equals(CellType.NUMERIC) ? cellIterator.next().getNumericCellValue() : cellIterator.next().getStringCellValue());
+                }
                 Cell idCell = row.getCell(0);
                 if (idCell != null && idCell.getCellType() == CellType.NUMERIC) {
                     user.setId((long) idCell.getNumericCellValue());
