@@ -24,6 +24,7 @@ public class CustomUserDetails implements UserDetails, Principal, Serializable {
     private String password;
     private Set< String > roles = new HashSet<>();
 
+
     @Override
     public String getName() {
         return username;
