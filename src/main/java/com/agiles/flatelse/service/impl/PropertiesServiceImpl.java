@@ -1,5 +1,7 @@
 package com.agiles.flatelse.service.impl;
 
+import com.agiles.flatelse.auth.dto.request.UserRequestDTO;
+import com.agiles.flatelse.auth.repository.UserRepo;
 import com.agiles.flatelse.dto.request.PropertiesRequestDto;
 import com.agiles.flatelse.dto.response.PropertiesResponseDto;
 import com.agiles.flatelse.model.Properties;
@@ -23,6 +25,9 @@ public class PropertiesServiceImpl implements PropertiesService {
 
     @Autowired
     private PropertyRepository propertyRepository;
+
+    @Autowired
+    private UserRepo userRepo;
 
 
     public void saveProperty(PropertiesRequestDto propertiesRequestDto, MultipartFile heroImageFile, List<MultipartFile> additionalImagesFiles) throws Exception {
@@ -65,6 +70,7 @@ public class PropertiesServiceImpl implements PropertiesService {
         properties.setOwnerContact(propertiesRequestDto.ownerContact());
         properties.setFurnished(propertiesRequestDto.furnished());
         properties.setAdditionalDetails(propertiesRequestDto.additionalDetails());
+        properties.setUser(userRepo.findById(propertiesRequestDto.userId()).orElse(null));
         return properties;
 
     }
@@ -158,20 +164,20 @@ public class PropertiesServiceImpl implements PropertiesService {
 
     private Properties convertForUpdate(Properties properties, PropertiesRequestDto propertiesRequestDto) throws Exception {
 
-        Map<String, Object> heroUploadResult = cloudneryImageService.upload(propertiesRequestDto.heroImage());
-        String heroImageUrl = (String) heroUploadResult.get("secure_url");
+//        Map<String, Object> heroUploadResult = cloudneryImageService.upload(propertiesRequestDto.heroImage());
+//        String heroImageUrl = (String) heroUploadResult.get("secure_url");
+//
+//
+//        List<String> imageUrls = new ArrayList<>();
+//        for (MultipartFile file : propertiesRequestDto.imageUrls()) {
+//            Map<String, Object> uploadResult = cloudneryImageService.upload(file);
+//            String imageUrl = (String) uploadResult.get("secure_url");
+//            imageUrls.add(imageUrl);
+//        }
 
-
-        List<String> imageUrls = new ArrayList<>();
-        for (MultipartFile file : propertiesRequestDto.imageUrls()) {
-            Map<String, Object> uploadResult = cloudneryImageService.upload(file);
-            String imageUrl = (String) uploadResult.get("secure_url");
-            imageUrls.add(imageUrl);
-        }
-
-
-        properties.setHeroImage(heroImageUrl);
-        properties.setImageUrls(imageUrls);
+//
+//        properties.setHeroImage(heroImageUrl);
+//        properties.setImageUrls(imageUrls);
         properties.setPrice(propertiesRequestDto.price());
         properties.setLocation(propertiesRequestDto.location());
         properties.setFeatures(propertiesRequestDto.features());
@@ -187,6 +193,8 @@ public class PropertiesServiceImpl implements PropertiesService {
         properties.setOwnerName(propertiesRequestDto.ownerName());
         properties.setOwnerContact(propertiesRequestDto.ownerContact());
         properties.setFurnished(propertiesRequestDto.furnished());
+        properties.setAdditionalDetails(propertiesRequestDto.additionalDetails());
+        properties.setUser(userRepo.findById(propertiesRequestDto.userId()).orElse(null));
         return properties;
 
     }

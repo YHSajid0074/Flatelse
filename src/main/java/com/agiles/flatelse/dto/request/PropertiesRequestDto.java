@@ -24,7 +24,8 @@ public record PropertiesRequestDto(
         Boolean availabilityStatus,
         String ownerName,
         String ownerContact,
-        String additionalDetails
+        String additionalDetails,
+        Long userId
 ) {
 
 }
