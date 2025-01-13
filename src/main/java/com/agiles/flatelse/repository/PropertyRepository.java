@@ -23,7 +23,7 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
             """)
     List<PropertiesResponseDto> getAllProperties();
 
-    // Search by parking availability
+
     @Query("""
             select p from Properties p where p.parking = :parking
             """)
