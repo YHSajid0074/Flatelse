@@ -70,7 +70,7 @@ public class PropertiesServiceImpl implements PropertiesService {
         properties.setOwnerContact(propertiesRequestDto.ownerContact());
         properties.setFurnished(propertiesRequestDto.furnished());
         properties.setAdditionalDetails(propertiesRequestDto.additionalDetails());
-        properties.setUser(userRepo.findById(propertiesRequestDto.userId()).orElse(null));
+        properties.setUser(userRepo.findByUsername(propertiesRequestDto.userName()));
         return properties;
 
     }
@@ -194,9 +194,8 @@ public class PropertiesServiceImpl implements PropertiesService {
         properties.setOwnerContact(propertiesRequestDto.ownerContact());
         properties.setFurnished(propertiesRequestDto.furnished());
         properties.setAdditionalDetails(propertiesRequestDto.additionalDetails());
-        properties.setUser(userRepo.findById(propertiesRequestDto.userId()).orElse(null));
-        return properties;
-
+//        properties.setUser(userRepo.findById(propertiesRequestDto.userId()).orElse(null));
+ return properties;
     }
 
 }

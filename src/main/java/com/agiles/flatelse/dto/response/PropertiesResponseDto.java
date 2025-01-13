@@ -1,6 +1,5 @@
 package com.agiles.flatelse.dto.response;
 
-
 import com.agiles.flatelse.auth.dto.response.CustomUserResponseDTO;
 
 import java.util.List;

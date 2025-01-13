@@ -25,7 +25,7 @@ public record PropertiesRequestDto(
         String ownerName,
         String ownerContact,
         String additionalDetails,
-        Long userId
+        String userName
 ) {
 
 }
