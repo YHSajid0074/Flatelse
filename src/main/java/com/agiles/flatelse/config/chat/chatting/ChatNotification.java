@@ -8,11 +8,11 @@ public class ChatNotification {
     private String recipientId;
     private String content;
 
-    // No-args constructor
+
     public ChatNotification() {
     }
 
-    // All-args constructor
+
     public ChatNotification(Long id, String senderId, String recipientId, String content) {
         this.id = id;
         this.senderId = senderId;
@@ -20,7 +20,7 @@ public class ChatNotification {
         this.content = content;
     }
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

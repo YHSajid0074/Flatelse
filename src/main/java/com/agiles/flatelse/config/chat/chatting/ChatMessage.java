@@ -19,11 +19,11 @@ public class ChatMessage {
     private String content;
     private Date timestamp;
 
-    // No-args constructor
+
     public ChatMessage() {
     }
 
-    // All-args constructor
+
     public ChatMessage(Long id, String chatId, String senderId, String recipientId, String content, Date timestamp) {
         this.id = id;
         this.chatId = chatId;
@@ -33,7 +33,7 @@ public class ChatMessage {
         this.timestamp = timestamp;
     }
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

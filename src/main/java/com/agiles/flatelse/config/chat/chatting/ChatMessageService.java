@@ -20,7 +20,7 @@ public class ChatMessageService {
     public ChatMessage save(ChatMessage chatMessage) {
         var chatId = chatRoomService
                 .getChatRoomId(chatMessage.getSenderId(), chatMessage.getRecipientId(), true)
-                .orElseThrow(); // we can create your own dedicated exception
+                .orElseThrow();
         chatMessage.setChatId(chatId);
         chatMessageRepo.save(chatMessage);
         return chatMessage;
