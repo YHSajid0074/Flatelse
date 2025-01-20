@@ -41,7 +41,6 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
             """)
     List<PropertiesResponseDto> searchByPropertyType(@Param("propertyType") String propertyType);
 
-
     @Query("""
             select p from Properties p where p.location like %:location%
             """)
