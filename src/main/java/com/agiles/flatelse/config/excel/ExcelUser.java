@@ -23,14 +23,14 @@ public class ExcelUser {
     public ExcelUser() {
     }
 
-    // Parameterized constructor
+
     public ExcelUser(String username, String email) {
         this.username = username;
         this.email = email;
 //        this.password = password;
     }
 
-    // Getter and Setter for id
+
     public Long getId() {
         return id;
     }
@@ -39,7 +39,7 @@ public class ExcelUser {
         this.id = id;
     }
 
-    // Getter and Setter for username
+
     public String getUsername() {
         return username;
     }
@@ -48,7 +48,7 @@ public class ExcelUser {
         this.username = username;
     }
 
-    // Getter and Setter for email
+
     public String getEmail() {
         return email;
     }
@@ -57,7 +57,6 @@ public class ExcelUser {
         this.email = email;
     }
 
-    // Getter and Setter for password
 //    public String getPassword() {
 //        return password;
 //    }

@@ -91,7 +91,7 @@ public class ExcelReportService {
             Sheet sheet = workbook.getSheetAt(0);
 
             List<ExcelUser> users = new ArrayList<>();
-            for (int i = 1; i <= sheet.getLastRowNum(); i++) { // Start from row 1 to skip header
+            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                 Row row = sheet.getRow(i);
 
                 if (row == null) {

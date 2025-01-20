@@ -47,7 +47,7 @@ public class GlobalWebSecurityConfig {
                 .cors(cors -> cors.configurationSource(new CustomCORSConfig()))
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(
-                        SessionCreationPolicy.STATELESS
+                        SessionCreationPolicy.ALWAYS
                 ))
                 .authorizeHttpRequests((httpRequests) -> {
                     httpRequests
@@ -85,15 +85,15 @@ public class GlobalWebSecurityConfig {
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();  // Default manager using DAO
+        return authenticationConfiguration.getAuthenticationManager();
     }
-// it is important.we need to uncomment it .
+
 
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(customUserDetailsService);  // Set the custom UserDetailsService
-        authProvider.setPasswordEncoder(passwordEncoder());  // Set the password encoder
+        authProvider.setUserDetailsService(customUserDetailsService);
+        authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }
 

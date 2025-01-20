@@ -38,7 +38,7 @@ public class Properties {
     private List<String> imageUrls;
 
     @ManyToOne
-    @JoinColumn(name = "user_id") // Foreign key column in the Product table
+    @JoinColumn(name = "user_id")
     private User user;
 
 

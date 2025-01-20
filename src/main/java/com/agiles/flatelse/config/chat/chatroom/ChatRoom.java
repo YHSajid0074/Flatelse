@@ -23,7 +23,7 @@ public class ChatRoom {
     public ChatRoom() {
     }
 
-    // All-args constructor
+
     public ChatRoom(Long id, String chatId, String senderId, String recipientId) {
         this.id = id;
         this.chatId = chatId;
@@ -31,7 +31,7 @@ public class ChatRoom {
         this.recipientId = recipientId;
     }
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }
