@@ -29,19 +29,17 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
             """)
     List<PropertiesResponseDto> searchByParking(@Param("parking") Boolean parking);
 
-    // Search by furnished status
     @Query("""
             select p from Properties p where p.furnished = :furnished
             """)
     List<PropertiesResponseDto> searchByFurnished(@Param("furnished") Boolean furnished);
 
-    // Search by property type
     @Query("""
             select p from Properties p where p.propertyType = :propertyType
             """)
     List<PropertiesResponseDto> searchByPropertyType(@Param("propertyType") String propertyType);
 
-    // Search by location
+
     @Query("""
             select p from Properties p where p.location like %:location%
             """)
