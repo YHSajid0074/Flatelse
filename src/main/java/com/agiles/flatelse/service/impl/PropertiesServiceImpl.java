@@ -2,6 +2,7 @@ package com.agiles.flatelse.service.impl;
 
 import com.agiles.flatelse.auth.dto.request.UserRequestDTO;
 import com.agiles.flatelse.auth.repository.UserRepo;
+import com.agiles.flatelse.config.page.PageData;
 import com.agiles.flatelse.dto.request.PropertiesRequestDto;
 import com.agiles.flatelse.dto.response.PropertiesResponseDto;
 import com.agiles.flatelse.model.Properties;
@@ -9,6 +10,7 @@ import com.agiles.flatelse.repository.PropertyRepository;
 import com.agiles.flatelse.service.CloudneryImageService;
 import com.agiles.flatelse.service.PropertiesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -137,30 +139,6 @@ public class PropertiesServiceImpl implements PropertiesService {
     public void deleteProperty(Long id) {
         propertyRepository.deleteById(id);
     }
-    @Override
-    public List<PropertiesResponseDto> searchByParking(Boolean parking) {
-        return propertyRepository.searchByParking(parking);
-    }
-
-    @Override
-    public List<PropertiesResponseDto> searchByFurnished(Boolean furnished) {
-        return propertyRepository.searchByFurnished(furnished);
-    }
-
-    @Override
-    public List<PropertiesResponseDto> searchByPropertyType(String propertyType) {
-        return propertyRepository.searchByPropertyType(propertyType);
-    }
-
-    @Override
-    public List<PropertiesResponseDto> searchByLocation(String location) {
-        return propertyRepository.searchByLocation(location);
-    }
-
-    @Override
-    public List<PropertiesResponseDto> searchByPetFriendly(Boolean petFriendly) {
-        return propertyRepository.findByPetFriendly(petFriendly);
-    }
 
     private Properties convertForUpdate(Properties properties, PropertiesRequestDto propertiesRequestDto) throws Exception {
 
@@ -197,5 +175,14 @@ public class PropertiesServiceImpl implements PropertiesService {
 //        properties.setUser(userRepo.findById(propertiesRequestDto.userId()).orElse(null));
  return properties;
     }
+
+//    private PageData toPageData(Page<?> data) {
+//        PageData pageData = new PageData();
+//        pageData.setModel(data.getContent());
+//        pageData.setTotalElements(data.getTotalElements());
+//        pageData.setTotalPages(data.getTotalPages());
+//        pageData.setCurrentPage(data.getNumber());
+//        return pageData;
+//    }
 
 }

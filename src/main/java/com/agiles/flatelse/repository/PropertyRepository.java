@@ -2,6 +2,8 @@ package com.agiles.flatelse.repository;
 
 import com.agiles.flatelse.dto.response.PropertiesResponseDto;
 import com.agiles.flatelse.model.Properties;
+import org.springdoc.core.converters.models.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -23,31 +25,8 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
             """)
     List<PropertiesResponseDto> getAllProperties();
 
-
-    @Query("""
-            select p from Properties p where p.parking = :parking
-            """)
-    List<PropertiesResponseDto> searchByParking(@Param("parking") Boolean parking);
-
-
-    @Query("""
-            select p from Properties p where p.furnished = :furnished
-            """)
-    List<PropertiesResponseDto> searchByFurnished(@Param("furnished") Boolean furnished);
-
-
-    @Query("""
-            select p from Properties p where p.propertyType = :propertyType
-            """)
-    List<PropertiesResponseDto> searchByPropertyType(@Param("propertyType") String propertyType);
-
-    @Query("""
-            select p from Properties p where p.location like %:location%
-            """)
-    List<PropertiesResponseDto> searchByLocation(@Param("location") String location);
-
- @Query("""
-           SELECT p FROM Properties p WHERE p.petFriendly = :petFriendly
-           """)
- List<PropertiesResponseDto> findByPetFriendly(Boolean petFriendly);
+//    Page<PropertiesResponseDto>search(
+//            @Param("query") String query,
+//            Pageable pageable
+//    );
 }

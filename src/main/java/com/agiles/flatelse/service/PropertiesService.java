@@ -19,14 +19,4 @@ public interface PropertiesService {
     void updateProperty(Long id, PropertiesRequestDto propertiesRequestDto) throws Exception;
 
     void deleteProperty(Long id);
-
-    List<PropertiesResponseDto> searchByParking(Boolean parking);
-
-    List<PropertiesResponseDto> searchByFurnished(Boolean furnished);
-
-    List<PropertiesResponseDto> searchByPropertyType(String propertyType);
-
-    List<PropertiesResponseDto> searchByLocation(String location);
-
-    List<PropertiesResponseDto> searchByPetFriendly(Boolean petFriendly);
 }

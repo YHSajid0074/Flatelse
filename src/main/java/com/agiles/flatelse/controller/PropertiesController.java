@@ -52,35 +52,6 @@ public class PropertiesController {
         propertiesService.deleteProperty(id);
     }
 
-    @GetMapping("/search-by-parking")
-    public ResponseEntity<List<PropertiesResponseDto>> searchByParking(@RequestParam("parking") Boolean parking) {
-        List<PropertiesResponseDto> properties = propertiesService.searchByParking(parking);
-        return new ResponseEntity<>(properties, HttpStatus.OK);
-    }
-
-    @GetMapping("/search-by-furnished")
-    public ResponseEntity<List<PropertiesResponseDto>> searchByFurnished(@RequestParam("furnished") Boolean furnished) {
-        List<PropertiesResponseDto> properties = propertiesService.searchByFurnished(furnished);
-        return new ResponseEntity<>(properties, HttpStatus.OK);
-    }
-
-    @GetMapping("/search-by-property-type")
-    public ResponseEntity<List<PropertiesResponseDto>> searchByPropertyType(@RequestParam("propertyType") String propertyType) {
-        List<PropertiesResponseDto> properties = propertiesService.searchByPropertyType(propertyType);
-        return new ResponseEntity<>(properties, HttpStatus.OK);
-    }
-
-    @GetMapping("/search-by-location")
-    public ResponseEntity<List<PropertiesResponseDto>> searchByLocation(@RequestParam("location") String location) {
-        List<PropertiesResponseDto> properties = propertiesService.searchByLocation(location);
-        return new ResponseEntity<>(properties, HttpStatus.OK);
-    }
-
-    @GetMapping("/search-by-pet-friendly")
-    public ResponseEntity<List<PropertiesResponseDto>> searchByPetFriendly(@RequestParam("petFriendly") Boolean petFriendly) {
-        List<PropertiesResponseDto> properties = propertiesService.searchByPetFriendly(petFriendly);
-        return new ResponseEntity<>(properties, HttpStatus.OK);
-    }
 }
 
 
