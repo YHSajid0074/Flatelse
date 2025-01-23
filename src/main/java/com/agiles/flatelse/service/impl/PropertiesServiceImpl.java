@@ -1,16 +1,13 @@
 package com.agiles.flatelse.service.impl;
 
-import com.agiles.flatelse.auth.dto.request.UserRequestDTO;
 import com.agiles.flatelse.auth.repository.UserRepo;
-import com.agiles.flatelse.config.page.PageData;
 import com.agiles.flatelse.dto.request.PropertiesRequestDto;
-import com.agiles.flatelse.dto.response.PropertiesResponseDto;
+import com.agiles.flatelse.dto.response.IPropertiesResponseDto;
 import com.agiles.flatelse.model.Properties;
 import com.agiles.flatelse.repository.PropertyRepository;
 import com.agiles.flatelse.service.CloudneryImageService;
 import com.agiles.flatelse.service.PropertiesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -78,14 +75,14 @@ public class PropertiesServiceImpl implements PropertiesService {
     }
 
 
-    @Override
-    public List<PropertiesResponseDto> getAllProperties() {
-        return propertyRepository.getAllProperties();
-    }
+//    @Override
+//    public List<IPropertiesResponseDto> getAllProperties() {
+//        return propertyRepository.getAllProperties();
+//    }
 
 
     @Override
-    public Optional<PropertiesResponseDto> getPropertyById(Long id) {
+    public Optional<IPropertiesResponseDto> getPropertyById(Long id) {
         return propertyRepository.getPropertiesById(id);
     }
 

@@ -1,11 +1,9 @@
 package com.agiles.flatelse.controller;
 
 import com.agiles.flatelse.dto.request.PropertiesRequestDto;
-import com.agiles.flatelse.dto.response.PropertiesResponseDto;
-import com.agiles.flatelse.model.Properties;
+import com.agiles.flatelse.dto.response.IPropertiesResponseDto;
 import com.agiles.flatelse.service.impl.PropertiesServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,14 +28,14 @@ public class PropertiesController {
     }
 
 
-    @GetMapping("/all")
-    public List<PropertiesResponseDto> getAllProperties() {
-        return propertiesService.getAllProperties();
-    }
+//    @GetMapping("/all")
+//    public List<IPropertiesResponseDto> getAllProperties() {
+//        return propertiesService.getAllProperties();
+//    }
 
 
     @GetMapping("/{id}")
-    public PropertiesResponseDto getPropertyById(@PathVariable Long id) {
+    public IPropertiesResponseDto getPropertyById(@PathVariable Long id) {
         return propertiesService.getPropertyById(id).get();
     }
 
@@ -51,6 +49,10 @@ public class PropertiesController {
     public void deleteProperty(@PathVariable Long id) {
         propertiesService.deleteProperty(id);
     }
+//    @PostMapping("search")
+//    public ResponseEntity<PageData>search(@RequestBody FuelConsumptionSearchDto requestDto) {
+//        return ResponseEntity.ok(propertiesService.search(requestDto));
+//    }
 
 }
 

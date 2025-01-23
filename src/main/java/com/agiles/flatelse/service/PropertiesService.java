@@ -1,8 +1,7 @@
 package com.agiles.flatelse.service;
 
 import com.agiles.flatelse.dto.request.PropertiesRequestDto;
-import com.agiles.flatelse.dto.response.PropertiesResponseDto;
-import com.agiles.flatelse.model.Properties;
+import com.agiles.flatelse.dto.response.IPropertiesResponseDto;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -12,9 +11,9 @@ public interface PropertiesService {
 
     void saveProperty(PropertiesRequestDto propertiesRequestDto, MultipartFile heroImageFile, List<MultipartFile> additionalImagesFiles) throws Exception;
 
-    List<PropertiesResponseDto> getAllProperties();
+//    List<IPropertiesResponseDto> getAllProperties();
 
-    Optional<PropertiesResponseDto> getPropertyById(Long id);
+    Optional<IPropertiesResponseDto> getPropertyById(Long id);
 
     void updateProperty(Long id, PropertiesRequestDto propertiesRequestDto) throws Exception;
 
