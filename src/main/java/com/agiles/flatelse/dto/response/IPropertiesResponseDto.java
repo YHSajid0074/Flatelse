@@ -1,0 +1,52 @@
+package com.agiles.flatelse.dto.response;
+
+import com.agiles.flatelse.auth.dto.response.CustomUserResponseDTO;
+
+import java.util.List;
+
+public interface IPropertiesResponseDto {
+
+    Long getId();
+
+    String getLocation();
+
+    String getPrice();
+
+    String getShortDescription();
+
+    String getLongDescription();
+
+    String getFeatures();
+
+    String getRestrictions();
+
+    String getHeroImage();
+
+    List<String> getImageUrls();
+
+    List<String> getShortTitle();
+
+    String getPropertyType();
+
+    String getPropertySize();
+
+    Boolean getParking();
+
+    Boolean getFurnished();
+
+    Integer getYearBuilt();
+
+    Boolean getPetFriendly();
+
+    Boolean getAvailabilityStatus();
+
+    String getOwnerName();
+
+    String getOwnerContact();
+
+    String getAdditionalDetails();
+
+    CustomUserResponseDTO getUser();
+
+}
+
