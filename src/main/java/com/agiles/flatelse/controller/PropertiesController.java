@@ -27,13 +27,6 @@ public class PropertiesController {
         return ResponseEntity.ok("Successfully Created");
     }
 
-
-//    @GetMapping("/all")
-//    public List<IPropertiesResponseDto> getAllProperties() {
-//        return propertiesService.getAllProperties();
-//    }
-
-
     @GetMapping("/{id}")
     public IPropertiesResponseDto getPropertyById(@PathVariable Long id) {
         return propertiesService.getPropertyById(id).get();

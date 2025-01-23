@@ -1,20 +1,23 @@
 package com.agiles.flatelse.service.impl;
 
 import com.agiles.flatelse.auth.repository.UserRepo;
+import com.agiles.flatelse.config.page.PageData;
 import com.agiles.flatelse.dto.request.PropertiesRequestDto;
+import com.agiles.flatelse.dto.request.PropertiesSearchDto;
 import com.agiles.flatelse.dto.response.IPropertiesResponseDto;
+import com.agiles.flatelse.dto.response.PropertiesResponseDto;
 import com.agiles.flatelse.model.Properties;
 import com.agiles.flatelse.repository.PropertyRepository;
 import com.agiles.flatelse.service.CloudneryImageService;
 import com.agiles.flatelse.service.PropertiesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class PropertiesServiceImpl implements PropertiesService {
@@ -173,13 +176,32 @@ public class PropertiesServiceImpl implements PropertiesService {
  return properties;
     }
 
-//    private PageData toPageData(Page<?> data) {
-//        PageData pageData = new PageData();
-//        pageData.setModel(data.getContent());
-//        pageData.setTotalElements(data.getTotalElements());
-//        pageData.setTotalPages(data.getTotalPages());
-//        pageData.setCurrentPage(data.getNumber());
-//        return pageData;
-//    }
+    private PageData toPageData(Page<?> data) {
+        PageData pageData = new PageData();
+        pageData.setModel(data.getContent());
+        pageData.setTotalElements(data.getTotalElements());
+        pageData.setTotalPages(data.getTotalPages());
+        pageData.setCurrentPage(data.getNumber());
+        return pageData;
+    }
+
+    public PageData search(PropertiesSearchDto propertiesSearchDto) {
+        int pageNumber = Objects.nonNull(propertiesSearchDto.getPageNumber()) ? propertiesSearchDto.getPageNumber() : 1;
+        int pageSize = Objects.nonNull(propertiesSearchDto.getPageSize()) ? propertiesSearchDto.getPageSize() : 10;
+
+        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
+
+        Page<IPropertiesResponseDto>properties=propertyRepository.search(
+                propertiesSearchDto.getLocation(),
+                propertiesSearchDto.getPrice(),
+                propertiesSearchDto.getPropertyType(),
+                propertiesSearchDto.getPropertySize(),
+                propertiesSearchDto.getParking(),
+                propertiesSearchDto.getFurnished(),
+                propertiesSearchDto.getPetFriendly(),
+                pageable
+        );
+return toPageData(properties);
+    }
 
 }

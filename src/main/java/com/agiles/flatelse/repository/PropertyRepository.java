@@ -2,8 +2,8 @@ package com.agiles.flatelse.repository;
 
 import com.agiles.flatelse.dto.response.IPropertiesResponseDto;
 import com.agiles.flatelse.model.Properties;
-import org.springdoc.core.converters.models.Pageable;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -29,7 +29,7 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
           AND (:furnished IS NULL OR p.furnished = :furnished)
           AND (:petFriendly IS NULL OR p.petFriendly = :petFriendly)
         """)
-    Page<IPropertiesResponseDto> getAllProperties(
+    Page<IPropertiesResponseDto> search(
             String location,
             String price,
             String propertyType,

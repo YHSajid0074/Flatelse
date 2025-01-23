@@ -15,4 +15,6 @@ public class PropertiesSearchDto {
     private Boolean petFriendly;
     private Boolean parking;
     private Boolean furnished;
+    private Integer pageNumber;
+    private Integer pageSize;
 }
