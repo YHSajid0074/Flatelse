@@ -29,6 +29,7 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
           AND (:parking IS NULL OR p.parking = :parking)
           AND (:furnished IS NULL OR p.furnished = :furnished)
           AND (:petFriendly IS NULL OR p.petFriendly = :petFriendly)
+          AND (COALESCE(:dealType, '') = '' OR LOWER(p.dealType) LIKE CONCAT('%', LOWER(:dealType), '%'))
         """)
     Page<IPropertiesResponseDto> search(
             String location,
@@ -38,6 +39,7 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
             Boolean parking,
             Boolean furnished,
             Boolean petFriendly,
+            String dealType,
             Pageable pageable
     );
 //    Page<PropertiesResponseDto>search(

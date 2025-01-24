@@ -1,6 +1,8 @@
 package com.agiles.flatelse.controller;
 
+import com.agiles.flatelse.config.page.PageData;
 import com.agiles.flatelse.dto.request.PropertiesRequestDto;
+import com.agiles.flatelse.dto.request.PropertiesSearchDto;
 import com.agiles.flatelse.dto.response.IPropertiesResponseDto;
 import com.agiles.flatelse.service.impl.PropertiesServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +45,10 @@ public class PropertiesController {
         propertiesService.deleteProperty(id);
     }
 
-//    @PostMapping("search")
-//    public ResponseEntity<PageData>search(@RequestBody FuelConsumptionSearchDto requestDto) {
-//        return ResponseEntity.ok(propertiesService.search(requestDto));
-//    }
+    @PostMapping("search")
+    public ResponseEntity<PageData>search(@RequestBody PropertiesSearchDto requestDto) {
+        return ResponseEntity.ok(propertiesService.search(requestDto));
+    }
 
 
     @GetMapping("getAll")

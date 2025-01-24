@@ -25,7 +25,8 @@ public record PropertiesRequestDto(
         String ownerName,
         String ownerContact,
         String additionalDetails,
-        String userName
+        String userName,
+        String dealType
 ) {
 
 }

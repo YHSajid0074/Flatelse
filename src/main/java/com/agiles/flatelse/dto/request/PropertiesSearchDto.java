@@ -12,6 +12,7 @@ public class PropertiesSearchDto {
     private String price;
     private String propertyType;
     private String propertySize;
+    private String dealType;
     private Boolean petFriendly;
     private Boolean parking;
     private Boolean furnished;

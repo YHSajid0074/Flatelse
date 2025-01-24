@@ -34,7 +34,7 @@ public class PropertiesServiceImpl implements PropertiesService {
 
     public void saveProperty(PropertiesRequestDto propertiesRequestDto, MultipartFile heroImageFile, List<MultipartFile> additionalImagesFiles) throws Exception {
 
-        Properties propertyEntity = convertToEntity(new Properties(), heroImageFile, additionalImagesFiles,propertiesRequestDto);
+        Properties propertyEntity = convertToEntity(new Properties(), heroImageFile, additionalImagesFiles, propertiesRequestDto);
 
         propertyRepository.save(propertyEntity);
     }
@@ -73,6 +73,7 @@ public class PropertiesServiceImpl implements PropertiesService {
         properties.setFurnished(propertiesRequestDto.furnished());
         properties.setAdditionalDetails(propertiesRequestDto.additionalDetails());
         properties.setUser(userRepo.findByUsername(propertiesRequestDto.userName()));
+        properties.setDealType(propertiesRequestDto.dealType());
         return properties;
 
     }
@@ -90,10 +91,10 @@ public class PropertiesServiceImpl implements PropertiesService {
     }
 
     @Override
-    public void updateProperty(Long id, PropertiesRequestDto propertiesRequestDto)throws Exception {
-      Properties properties1=propertyRepository.findById(id).get();
-      Properties update=convertForUpdate(properties1,propertiesRequestDto);
-      propertyRepository.save(update);
+    public void updateProperty(Long id, PropertiesRequestDto propertiesRequestDto) throws Exception {
+        Properties properties1 = propertyRepository.findById(id).get();
+        Properties update = convertForUpdate(properties1, propertiesRequestDto);
+        propertyRepository.save(update);
     }
 
 
@@ -173,7 +174,8 @@ public class PropertiesServiceImpl implements PropertiesService {
         properties.setFurnished(propertiesRequestDto.furnished());
         properties.setAdditionalDetails(propertiesRequestDto.additionalDetails());
 //        properties.setUser(userRepo.findById(propertiesRequestDto.userId()).orElse(null));
- return properties;
+        properties.setDealType(propertiesRequestDto.dealType());
+        return properties;
     }
 
     private PageData toPageData(Page<?> data) {
@@ -187,11 +189,11 @@ public class PropertiesServiceImpl implements PropertiesService {
 
     public PageData search(PropertiesSearchDto propertiesSearchDto) {
         int pageNumber = Objects.nonNull(propertiesSearchDto.getPageNumber()) ? propertiesSearchDto.getPageNumber() : 1;
-        int pageSize = Objects.nonNull(propertiesSearchDto.getPageSize()) ? propertiesSearchDto.getPageSize() : 10;
+        int pageSize = Objects.nonNull(propertiesSearchDto.getPageSize()) ? propertiesSearchDto.getPageSize() : 20;
 
         Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
 
-        Page<IPropertiesResponseDto>properties=propertyRepository.search(
+        Page<IPropertiesResponseDto> properties = propertyRepository.search(
                 propertiesSearchDto.getLocation(),
                 propertiesSearchDto.getPrice(),
                 propertiesSearchDto.getPropertyType(),
@@ -199,9 +201,10 @@ public class PropertiesServiceImpl implements PropertiesService {
                 propertiesSearchDto.getParking(),
                 propertiesSearchDto.getFurnished(),
                 propertiesSearchDto.getPetFriendly(),
+                propertiesSearchDto.getDealType(),
                 pageable
         );
-return toPageData(properties);
+        return toPageData(properties);
     }
 
 }

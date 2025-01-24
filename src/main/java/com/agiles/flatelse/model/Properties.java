@@ -29,6 +29,9 @@ public class Properties {
     private String ownerName;
     private String ownerContact;
     private String additionalDetails;
+    private String dealType;
+
+
     // Hero Image (main image) field
     private String heroImage;
     // List of image URLs for additional images
@@ -54,7 +57,7 @@ public class Properties {
     public Properties(String location, String price, String shortDescription, String longDescription,
                       String features, String restrictions, List<String> shortTitle,String propertyType,
                       String propertySize,Boolean parking,Boolean furnished,Integer yearBuilt,
-                      Boolean petFriendly,Boolean availabilityStatus,String ownerName,String ownerContact) {
+                      Boolean petFriendly,Boolean availabilityStatus,String ownerName,String ownerContact,String dealType) {
         this.location = location;
         this.price = price;
         this.shortDescription = shortDescription;
@@ -71,6 +74,7 @@ public class Properties {
         this.availabilityStatus = availabilityStatus;
         this.ownerName = ownerName;
         this.ownerContact = ownerContact;
+        this.dealType = dealType;
     }
 
     public Long getId() {
@@ -241,6 +245,14 @@ public class Properties {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getDealType() {
+        return dealType;
+    }
+
+    public void setDealType(String dealType) {
+        this.dealType = dealType;
     }
 }
 

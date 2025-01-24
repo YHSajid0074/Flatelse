@@ -46,6 +46,8 @@ public interface IPropertiesResponseDto {
 
     String getAdditionalDetails();
 
+    String getDealType();
+
     CustomUserResponseDTO getUser();
 
 }
