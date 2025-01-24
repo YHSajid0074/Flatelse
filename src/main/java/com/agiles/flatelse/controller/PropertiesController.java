@@ -51,9 +51,9 @@ public class PropertiesController {
 //    }
 
 
-    @GetMapping("getAll")
-    public ResponseEntity<List<IPropertiesResponseDto>> getAllProperties() {
-        return ResponseEntity.ok(propertiesService.getAllProperties());
+    @GetMapping("getAll/{dealType}")
+    public ResponseEntity<List<IPropertiesResponseDto>> getAllProperties(@PathVariable String dealType) {
+        return ResponseEntity.ok(propertiesService.getAllProperties(dealType));
     }
 
 

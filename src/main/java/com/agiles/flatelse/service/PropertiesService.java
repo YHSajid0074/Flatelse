@@ -11,7 +11,7 @@ public interface PropertiesService {
 
     void saveProperty(PropertiesRequestDto propertiesRequestDto, MultipartFile heroImageFile, List<MultipartFile> additionalImagesFiles) throws Exception;
 
-    List<IPropertiesResponseDto> getAllProperties();
+    List<IPropertiesResponseDto> getAllProperties(String dealType);
 
     Optional<IPropertiesResponseDto> getPropertyById(Long id);
 

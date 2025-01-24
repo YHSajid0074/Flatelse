@@ -50,9 +50,11 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
 
     @Query("""
    SELECT p FROM Properties p
+    WHERE (COALESCE(:dealType, '') = '' OR
+     LOWER(p.dealType) LIKE CONCAT('%', LOWER(:dealType), '%'))
 """)
 
-    List<IPropertiesResponseDto> getAllProperties();
+    List<IPropertiesResponseDto> getAllProperties(String dealType);
 
 
 

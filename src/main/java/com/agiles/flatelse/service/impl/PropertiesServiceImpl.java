@@ -80,8 +80,8 @@ public class PropertiesServiceImpl implements PropertiesService {
 
 
     @Override
-    public List<IPropertiesResponseDto> getAllProperties() {
-        return propertyRepository.getAllProperties();
+    public List<IPropertiesResponseDto> getAllProperties(String dealType) {
+        return propertyRepository.getAllProperties(dealType);
     }
 
 
@@ -157,22 +157,22 @@ public class PropertiesServiceImpl implements PropertiesService {
 //
 //        properties.setHeroImage(heroImageUrl);
 //        properties.setImageUrls(imageUrls);
-        properties.setPrice(propertiesRequestDto.price());
-        properties.setLocation(propertiesRequestDto.location());
-        properties.setFeatures(propertiesRequestDto.features());
-        properties.setRestrictions(propertiesRequestDto.restrictions());
-        properties.setLongDescription(propertiesRequestDto.longDescription());
-        properties.setShortDescription(propertiesRequestDto.shortDescription());
-        properties.setPropertySize(propertiesRequestDto.propertySize());
-        properties.setPropertyType(propertiesRequestDto.propertyType());
-        properties.setYearBuilt(propertiesRequestDto.yearBuilt());
-        properties.setPetFriendly(propertiesRequestDto.petFriendly());
-        properties.setAvailabilityStatus(propertiesRequestDto.availabilityStatus());
-        properties.setParking(propertiesRequestDto.parking());
-        properties.setOwnerName(propertiesRequestDto.ownerName());
-        properties.setOwnerContact(propertiesRequestDto.ownerContact());
-        properties.setFurnished(propertiesRequestDto.furnished());
-        properties.setAdditionalDetails(propertiesRequestDto.additionalDetails());
+//        properties.setPrice(propertiesRequestDto.price());
+//        properties.setLocation(propertiesRequestDto.location());
+//        properties.setFeatures(propertiesRequestDto.features());
+//        properties.setRestrictions(propertiesRequestDto.restrictions());
+//        properties.setLongDescription(propertiesRequestDto.longDescription());
+//        properties.setShortDescription(propertiesRequestDto.shortDescription());
+//        properties.setPropertySize(propertiesRequestDto.propertySize());
+//        properties.setPropertyType(propertiesRequestDto.propertyType());
+//        properties.setYearBuilt(propertiesRequestDto.yearBuilt());
+//        properties.setPetFriendly(propertiesRequestDto.petFriendly());
+//        properties.setAvailabilityStatus(propertiesRequestDto.availabilityStatus());
+//        properties.setParking(propertiesRequestDto.parking());
+//        properties.setOwnerName(propertiesRequestDto.ownerName());
+//        properties.setOwnerContact(propertiesRequestDto.ownerContact());
+//        properties.setFurnished(propertiesRequestDto.furnished());
+//        properties.setAdditionalDetails(propertiesRequestDto.additionalDetails());
 //        properties.setUser(userRepo.findById(propertiesRequestDto.userId()).orElse(null));
         properties.setDealType(propertiesRequestDto.dealType());
         return properties;
