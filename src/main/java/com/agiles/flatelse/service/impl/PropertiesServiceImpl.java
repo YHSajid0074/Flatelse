@@ -78,10 +78,10 @@ public class PropertiesServiceImpl implements PropertiesService {
     }
 
 
-//    @Override
-//    public List<IPropertiesResponseDto> getAllProperties() {
-//        return propertyRepository.getAllProperties();
-//    }
+    @Override
+    public List<IPropertiesResponseDto> getAllProperties() {
+        return propertyRepository.getAllProperties();
+    }
 
 
     @Override

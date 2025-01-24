@@ -42,10 +42,17 @@ public class PropertiesController {
     public void deleteProperty(@PathVariable Long id) {
         propertiesService.deleteProperty(id);
     }
+
 //    @PostMapping("search")
 //    public ResponseEntity<PageData>search(@RequestBody FuelConsumptionSearchDto requestDto) {
 //        return ResponseEntity.ok(propertiesService.search(requestDto));
 //    }
+
+
+    @GetMapping("getAll")
+    public ResponseEntity<List<IPropertiesResponseDto>> getAllProperties() {
+        return ResponseEntity.ok(propertiesService.getAllProperties());
+    }
 
 }
 
