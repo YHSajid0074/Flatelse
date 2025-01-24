@@ -207,4 +207,18 @@ public class PropertiesServiceImpl implements PropertiesService {
         return toPageData(properties);
     }
 
+
+    public List<IPropertiesResponseDto>search1(PropertiesSearchDto propertiesSearchDto) {
+        return propertyRepository.search1(
+                propertiesSearchDto.getLocation(),
+                propertiesSearchDto.getPrice(),
+                propertiesSearchDto.getPropertyType(),
+                propertiesSearchDto.getPropertySize(),
+                propertiesSearchDto.getParking(),
+                propertiesSearchDto.getFurnished(),
+                propertiesSearchDto.getPetFriendly(),
+                propertiesSearchDto.getDealType()
+        );
+    }
+
 }

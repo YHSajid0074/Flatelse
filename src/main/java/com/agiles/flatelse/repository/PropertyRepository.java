@@ -53,4 +53,29 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
 """)
 
     List<IPropertiesResponseDto> getAllProperties();
+
+
+
+    @Query("""
+        SELECT p
+        FROM Properties p
+        WHERE (COALESCE(:location, '') = '' OR LOWER(p.location) LIKE CONCAT('%', LOWER(:location), '%'))
+          AND (:price IS NULL OR p.price < :price)
+          AND (COALESCE(:propertyType, '') = '' OR LOWER(p.propertyType) LIKE CONCAT('%', LOWER(:propertyType), '%'))
+          AND (COALESCE(:propertySize, '') = '' OR LOWER(p.propertySize) LIKE CONCAT('%', LOWER(:propertySize), '%'))
+          AND (:parking IS NULL OR p.parking = :parking)
+          AND (:furnished IS NULL OR p.furnished = :furnished)
+          AND (:petFriendly IS NULL OR p.petFriendly = :petFriendly)
+          AND (COALESCE(:dealType, '') = '' OR LOWER(p.dealType) LIKE CONCAT('%', LOWER(:dealType), '%'))
+        """)
+    List<IPropertiesResponseDto> search1(
+            String location,
+            String price,
+            String propertyType,
+            String propertySize,
+            Boolean parking,
+            Boolean furnished,
+            Boolean petFriendly,
+            String dealType
+    );
 }

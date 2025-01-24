@@ -45,15 +45,21 @@ public class PropertiesController {
         propertiesService.deleteProperty(id);
     }
 
-    @PostMapping("search")
-    public ResponseEntity<PageData>search(@RequestBody PropertiesSearchDto requestDto) {
-        return ResponseEntity.ok(propertiesService.search(requestDto));
-    }
+//    @PostMapping("search")
+//    public ResponseEntity<PageData>search(@RequestBody PropertiesSearchDto requestDto) {
+//        return ResponseEntity.ok(propertiesService.search(requestDto));
+//    }
 
 
     @GetMapping("getAll")
     public ResponseEntity<List<IPropertiesResponseDto>> getAllProperties() {
         return ResponseEntity.ok(propertiesService.getAllProperties());
+    }
+
+
+    @PostMapping("search")
+    public ResponseEntity<List<IPropertiesResponseDto>> getAllBySearch(@RequestBody  PropertiesSearchDto propertiesSearchDto) {
+        return ResponseEntity.ok(propertiesService.search1(propertiesSearchDto));
     }
 
 }
