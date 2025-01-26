@@ -2,8 +2,16 @@ package com.agiles.flatelse.model;
 
 import com.agiles.flatelse.auth.model.User;
 import jakarta.persistence.*;
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.util.List;
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 public class Properties {
 
@@ -52,208 +60,207 @@ public class Properties {
     @Column(name = "short_title")
     private List<String> shortTitle;
 
-    public Properties() {}
-
-    public Properties(String location, String price, String shortDescription, String longDescription,
-                      String features, String restrictions, List<String> shortTitle,String propertyType,
-                      String propertySize,Boolean parking,Boolean furnished,Integer yearBuilt,
-                      Boolean petFriendly,Boolean availabilityStatus,String ownerName,String ownerContact,String dealType) {
-        this.location = location;
-        this.price = price;
-        this.shortDescription = shortDescription;
-        this.longDescription = longDescription;
-        this.features = features;
-        this.restrictions = restrictions;
-        this.shortTitle = shortTitle;
-        this.parking = parking;
-        this.furnished = furnished;
-        this.propertyType = propertyType;
-        this.propertySize = propertySize;
-        this.yearBuilt = yearBuilt;
-        this.petFriendly = petFriendly;
-        this.availabilityStatus = availabilityStatus;
-        this.ownerName = ownerName;
-        this.ownerContact = ownerContact;
-        this.dealType = dealType;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public String getShortDescription() {
-        return shortDescription;
-    }
-
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
-    }
-
-    public String getLongDescription() {
-        return longDescription;
-    }
-
-    public void setLongDescription(String longDescription) {
-        this.longDescription = longDescription;
-    }
-
-    public String getFeatures() {
-        return features;
-    }
-
-    public void setFeatures(String features) {
-        this.features = features;
-    }
-
-    public String getRestrictions() {
-        return restrictions;
-    }
-
-    public void setRestrictions(String restrictions) {
-        this.restrictions = restrictions;
-    }
-
-    public String getHeroImage() {
-        return heroImage;
-    }
-
-    public void setHeroImage(String heroImage) {
-        this.heroImage = heroImage;
-    }
-
-    public List<String> getImageUrls() {
-        return imageUrls;
-    }
-
-    public void setImageUrls(List<String> imageUrls) {
-        this.imageUrls = imageUrls;
-    }
-
-    public List<String> getShortTitle() {
-        return shortTitle;
-    }
-
-    public void setShortTitle(List<String> shortTitle) {
-        this.shortTitle = shortTitle;
-    }
-    // Getter and Setter for propertyType
-    public String getPropertyType() {
-        return propertyType;
-    }
-
-    public void setPropertyType(String propertyType) {
-        this.propertyType = propertyType;
-    }
-
-    // Getter and Setter for propertySize
-    public String getPropertySize() {
-        return propertySize;
-    }
-
-    public void setPropertySize(String propertySize) {
-        this.propertySize = propertySize;
-    }
-
-    // Getter and Setter for parking
-    public Boolean getParking() {
-        return parking;
-    }
-
-    public void setParking(Boolean parking) {
-        this.parking = parking;
-    }
-
-    // Getter and Setter for furnished
-    public Boolean getFurnished() {
-        return furnished;
-    }
-
-    public void setFurnished(Boolean furnished) {
-        this.furnished = furnished;
-    }
-    public Integer getYearBuilt() {
-        return yearBuilt;
-    }
-
-    public void setYearBuilt(Integer yearBuilt) {
-        this.yearBuilt = yearBuilt;
-    }
-
-    public Boolean getPetFriendly() {
-        return petFriendly;
-    }
-
-    public void setPetFriendly(Boolean petFriendly) {
-        this.petFriendly = petFriendly;
-    }
-
-    public Boolean getAvailabilityStatus() {
-        return availabilityStatus;
-    }
-
-    public void setAvailabilityStatus(Boolean availabilityStatus) {
-        this.availabilityStatus = availabilityStatus;
-    }
-
-    public String getOwnerName() {
-        return ownerName;
-    }
-
-    public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
-    }
-
-    public String getOwnerContact() {
-        return ownerContact;
-    }
-
-    public void setOwnerContact(String ownerContact) {
-        this.ownerContact = ownerContact;
-    }
-
-    public String getAdditionalDetails() {
-        return additionalDetails;
-    }
-
-    public void setAdditionalDetails(String additionalDetails) {
-        this.additionalDetails = additionalDetails;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getDealType() {
-        return dealType;
-    }
-
-    public void setDealType(String dealType) {
-        this.dealType = dealType;
-    }
+//
+//    public Properties(String location, String price, String shortDescription, String longDescription,
+//                      String features, String restrictions, List<String> shortTitle,String propertyType,
+//                      String propertySize,Boolean parking,Boolean furnished,Integer yearBuilt,
+//                      Boolean petFriendly,Boolean availabilityStatus,String ownerName,String ownerContact,String dealType) {
+//        this.location = location;
+//        this.price = price;
+//        this.shortDescription = shortDescription;
+//        this.longDescription = longDescription;
+//        this.features = features;
+//        this.restrictions = restrictions;
+//        this.shortTitle = shortTitle;
+//        this.parking = parking;
+//        this.furnished = furnished;
+//        this.propertyType = propertyType;
+//        this.propertySize = propertySize;
+//        this.yearBuilt = yearBuilt;
+//        this.petFriendly = petFriendly;
+//        this.availabilityStatus = availabilityStatus;
+//        this.ownerName = ownerName;
+//        this.ownerContact = ownerContact;
+//        this.dealType = dealType;
+//    }
+//
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getLocation() {
+//        return location;
+//    }
+//
+//    public void setLocation(String location) {
+//        this.location = location;
+//    }
+//
+//    public String getPrice() {
+//        return price;
+//    }
+//
+//    public void setPrice(String price) {
+//        this.price = price;
+//    }
+//
+//    public String getShortDescription() {
+//        return shortDescription;
+//    }
+//
+//    public void setShortDescription(String shortDescription) {
+//        this.shortDescription = shortDescription;
+//    }
+//
+//    public String getLongDescription() {
+//        return longDescription;
+//    }
+//
+//    public void setLongDescription(String longDescription) {
+//        this.longDescription = longDescription;
+//    }
+//
+//    public String getFeatures() {
+//        return features;
+//    }
+//
+//    public void setFeatures(String features) {
+//        this.features = features;
+//    }
+//
+//    public String getRestrictions() {
+//        return restrictions;
+//    }
+//
+//    public void setRestrictions(String restrictions) {
+//        this.restrictions = restrictions;
+//    }
+//
+//    public String getHeroImage() {
+//        return heroImage;
+//    }
+//
+//    public void setHeroImage(String heroImage) {
+//        this.heroImage = heroImage;
+//    }
+//
+//    public List<String> getImageUrls() {
+//        return imageUrls;
+//    }
+//
+//    public void setImageUrls(List<String> imageUrls) {
+//        this.imageUrls = imageUrls;
+//    }
+//
+//    public List<String> getShortTitle() {
+//        return shortTitle;
+//    }
+//
+//    public void setShortTitle(List<String> shortTitle) {
+//        this.shortTitle = shortTitle;
+//    }
+//    // Getter and Setter for propertyType
+//    public String getPropertyType() {
+//        return propertyType;
+//    }
+//
+//    public void setPropertyType(String propertyType) {
+//        this.propertyType = propertyType;
+//    }
+//
+//    // Getter and Setter for propertySize
+//    public String getPropertySize() {
+//        return propertySize;
+//    }
+//
+//    public void setPropertySize(String propertySize) {
+//        this.propertySize = propertySize;
+//    }
+//
+//    // Getter and Setter for parking
+//    public Boolean getParking() {
+//        return parking;
+//    }
+//
+//    public void setParking(Boolean parking) {
+//        this.parking = parking;
+//    }
+//
+//    // Getter and Setter for furnished
+//    public Boolean getFurnished() {
+//        return furnished;
+//    }
+//
+//    public void setFurnished(Boolean furnished) {
+//        this.furnished = furnished;
+//    }
+//    public Integer getYearBuilt() {
+//        return yearBuilt;
+//    }
+//
+//    public void setYearBuilt(Integer yearBuilt) {
+//        this.yearBuilt = yearBuilt;
+//    }
+//
+//    public Boolean getPetFriendly() {
+//        return petFriendly;
+//    }
+//
+//    public void setPetFriendly(Boolean petFriendly) {
+//        this.petFriendly = petFriendly;
+//    }
+//
+//    public Boolean getAvailabilityStatus() {
+//        return availabilityStatus;
+//    }
+//
+//    public void setAvailabilityStatus(Boolean availabilityStatus) {
+//        this.availabilityStatus = availabilityStatus;
+//    }
+//
+//    public String getOwnerName() {
+//        return ownerName;
+//    }
+//
+//    public void setOwnerName(String ownerName) {
+//        this.ownerName = ownerName;
+//    }
+//
+//    public String getOwnerContact() {
+//        return ownerContact;
+//    }
+//
+//    public void setOwnerContact(String ownerContact) {
+//        this.ownerContact = ownerContact;
+//    }
+//
+//    public String getAdditionalDetails() {
+//        return additionalDetails;
+//    }
+//
+//    public void setAdditionalDetails(String additionalDetails) {
+//        this.additionalDetails = additionalDetails;
+//    }
+//
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
+//
+//    public String getDealType() {
+//        return dealType;
+//    }
+//
+//    public void setDealType(String dealType) {
+//        this.dealType = dealType;
+//    }
 }
 
 
