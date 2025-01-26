@@ -102,6 +102,7 @@ public class PropertiesServiceImpl implements PropertiesService {
         properties.setRoofTopAllowed(propertiesRequestDto.roofTopAllowed());
         properties.setRenovationStatus(propertiesRequestDto.renovationStatus());
         properties.setDeposit(propertiesRequestDto.deposit());
+        properties.setUser(userRepo.findByUsername(propertiesRequestDto.userName()));
         return properties;
 
     }
