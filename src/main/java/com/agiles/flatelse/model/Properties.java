@@ -21,12 +21,14 @@ public class Properties {
 
     private String location;
     private String price;
+//    negotiatable or fixed
+    private Boolean priceType;
     @Column(length = 500)
     private String shortDescription;
     @Column(length = 5000)
     private String longDescription;
-    private String features;
     private String restrictions;
+//    commertial,recidential
     private String propertyType;
     private String propertySize;
     private Boolean parking;
@@ -36,9 +38,40 @@ public class Properties {
     private Boolean availabilityStatus;
     private String ownerName;
     private String ownerContact;
-    private String additionalDetails;
     private String dealType;
 
+    private Long noOfBedrooms;
+    private Long noOfBathrooms;
+    private Long floorLevel;
+    private Long noOfBalconies;
+    private String kitchenType;
+    private String livingAndDiningType;
+    private String flooringType;
+    private String airConditioningType;
+
+    private Boolean elevator;
+    private Boolean generator;
+    private Boolean security;
+    private Boolean gym;
+    private Boolean pool;
+    private String tenantType;
+
+    private String schoolDistance;
+    private String hospitalDistance;
+    private String mainRoadDistance;
+
+    private String gasConnection;
+    private String waterAvailability;
+    private Boolean cctv;
+    private String OccupancyRequirements;
+    private String leaseTerm;
+    private String facingDirection;
+    private Boolean roofTopAllowed;
+    private String renovationStatus;
+    private String deposit;
+
+
+    private Boolean loved;
 
     // Hero Image (main image) field
     private String heroImage;
@@ -54,11 +87,6 @@ public class Properties {
 
 
 
-    // List of short titles for each additional image
-    @ElementCollection
-    @CollectionTable(name = "property_image_titles", joinColumns = @JoinColumn(name = "property_id"))
-    @Column(name = "short_title")
-    private List<String> shortTitle;
 
 //
 //    public Properties(String location, String price, String shortDescription, String longDescription,

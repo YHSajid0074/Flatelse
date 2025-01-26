@@ -56,24 +56,53 @@ public class PropertiesServiceImpl implements PropertiesService {
 
         properties.setHeroImage(heroImageUrl);
         properties.setImageUrls(imageUrls);
-        properties.setPrice(propertiesRequestDto.price());
         properties.setLocation(propertiesRequestDto.location());
-        properties.setFeatures(propertiesRequestDto.features());
-        properties.setRestrictions(propertiesRequestDto.restrictions());
-        properties.setLongDescription(propertiesRequestDto.longDescription());
+        properties.setPrice(propertiesRequestDto.price());
+        properties.setPriceType(propertiesRequestDto.priceType());
         properties.setShortDescription(propertiesRequestDto.shortDescription());
-        properties.setPropertySize(propertiesRequestDto.propertySize());
+        properties.setLongDescription(propertiesRequestDto.longDescription());
+        properties.setRestrictions(propertiesRequestDto.restrictions());
+
         properties.setPropertyType(propertiesRequestDto.propertyType());
+        properties.setPropertySize(propertiesRequestDto.propertySize());
+        properties.setParking(propertiesRequestDto.parking());
+        properties.setFurnished(propertiesRequestDto.furnished());
         properties.setYearBuilt(propertiesRequestDto.yearBuilt());
         properties.setPetFriendly(propertiesRequestDto.petFriendly());
         properties.setAvailabilityStatus(propertiesRequestDto.availabilityStatus());
-        properties.setParking(propertiesRequestDto.parking());
         properties.setOwnerName(propertiesRequestDto.ownerName());
         properties.setOwnerContact(propertiesRequestDto.ownerContact());
-        properties.setFurnished(propertiesRequestDto.furnished());
-        properties.setAdditionalDetails(propertiesRequestDto.additionalDetails());
-        properties.setUser(userRepo.findByUsername(propertiesRequestDto.userName()));
         properties.setDealType(propertiesRequestDto.dealType());
+
+        properties.setNoOfBedrooms(propertiesRequestDto.noOfBedrooms());
+        properties.setNoOfBathrooms(propertiesRequestDto.noOfBathrooms());
+        properties.setFloorLevel(propertiesRequestDto.floorLevel());
+        properties.setNoOfBalconies(propertiesRequestDto.noOfBalconies());
+        properties.setKitchenType(propertiesRequestDto.kitchenType());
+        properties.setLivingAndDiningType(propertiesRequestDto.livingAndDiningType());
+        properties.setFlooringType(propertiesRequestDto.flooringType());
+        properties.setAirConditioningType(propertiesRequestDto.airConditioningType());
+
+        properties.setElevator(propertiesRequestDto.elevator());
+        properties.setGenerator(propertiesRequestDto.generator());
+        properties.setSecurity(propertiesRequestDto.security());
+        properties.setGym(propertiesRequestDto.gym());
+        properties.setPool(propertiesRequestDto.pool());
+        properties.setTenantType(propertiesRequestDto.tenantType());
+
+        properties.setSchoolDistance(propertiesRequestDto.schoolDistance());
+        properties.setHospitalDistance(propertiesRequestDto.hospitalDistance());
+        properties.setMainRoadDistance(propertiesRequestDto.mainRoadDistance());
+
+        properties.setGasConnection(propertiesRequestDto.gasConnection());
+        properties.setWaterAvailability(propertiesRequestDto.waterAvailability());
+        properties.setCctv(propertiesRequestDto.cctv());
+        properties.setOccupancyRequirements(propertiesRequestDto.occupancyRequirements());
+        properties.setLeaseTerm(propertiesRequestDto.leaseTerm());
+        properties.setFacingDirection(propertiesRequestDto.facingDirection());
+        properties.setRoofTopAllowed(propertiesRequestDto.roofTopAllowed());
+        properties.setRenovationStatus(propertiesRequestDto.renovationStatus());
+        properties.setDeposit(propertiesRequestDto.deposit());
         return properties;
 
     }
