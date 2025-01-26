@@ -21,7 +21,6 @@ public record PropertiesRequestDto(
         Boolean furnished,
         Integer yearBuilt,
         Boolean petFriendly,
-        Boolean availabilityStatus,
         String ownerName,
         String ownerContact,
         String dealType,

@@ -69,7 +69,6 @@ public class PropertiesServiceImpl implements PropertiesService {
         properties.setFurnished(propertiesRequestDto.furnished());
         properties.setYearBuilt(propertiesRequestDto.yearBuilt());
         properties.setPetFriendly(propertiesRequestDto.petFriendly());
-        properties.setAvailabilityStatus(propertiesRequestDto.availabilityStatus());
         properties.setOwnerName(propertiesRequestDto.ownerName());
         properties.setOwnerContact(propertiesRequestDto.ownerContact());
         properties.setDealType(propertiesRequestDto.dealType());
@@ -216,25 +215,25 @@ public class PropertiesServiceImpl implements PropertiesService {
         return pageData;
     }
 
-    public PageData search(PropertiesSearchDto propertiesSearchDto) {
-        int pageNumber = Objects.nonNull(propertiesSearchDto.getPageNumber()) ? propertiesSearchDto.getPageNumber() : 1;
-        int pageSize = Objects.nonNull(propertiesSearchDto.getPageSize()) ? propertiesSearchDto.getPageSize() : 20;
-
-        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
-
-        Page<IPropertiesResponseDto> properties = propertyRepository.search(
-                propertiesSearchDto.getLocation(),
-                propertiesSearchDto.getPrice(),
-                propertiesSearchDto.getPropertyType(),
-                propertiesSearchDto.getPropertySize(),
-                propertiesSearchDto.getParking(),
-                propertiesSearchDto.getFurnished(),
-                propertiesSearchDto.getPetFriendly(),
-                propertiesSearchDto.getDealType(),
-                pageable
-        );
-        return toPageData(properties);
-    }
+//    public PageData search(PropertiesSearchDto propertiesSearchDto) {
+//        int pageNumber = Objects.nonNull(propertiesSearchDto.getPageNumber()) ? propertiesSearchDto.getPageNumber() : 1;
+//        int pageSize = Objects.nonNull(propertiesSearchDto.getPageSize()) ? propertiesSearchDto.getPageSize() : 20;
+//
+//        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
+//
+//        Page<IPropertiesResponseDto> properties = propertyRepository.search(
+//                propertiesSearchDto.getLocation(),
+//                propertiesSearchDto.getPrice(),
+//                propertiesSearchDto.getPropertyType(),
+//                propertiesSearchDto.getPropertySize(),
+//                propertiesSearchDto.getParking(),
+//                propertiesSearchDto.getFurnished(),
+//                propertiesSearchDto.getPetFriendly(),
+//                propertiesSearchDto.getDealType(),
+//                pageable
+//        );
+//        return toPageData(properties);
+//    }
 
 
     public List<IPropertiesResponseDto>search1(PropertiesSearchDto propertiesSearchDto) {
@@ -242,11 +241,28 @@ public class PropertiesServiceImpl implements PropertiesService {
                 propertiesSearchDto.getLocation(),
                 propertiesSearchDto.getPrice(),
                 propertiesSearchDto.getPropertyType(),
-                propertiesSearchDto.getPropertySize(),
+                propertiesSearchDto.getNoOfBedrooms(),
+                propertiesSearchDto.getNoOfBathrooms(),
                 propertiesSearchDto.getParking(),
                 propertiesSearchDto.getFurnished(),
                 propertiesSearchDto.getPetFriendly(),
-                propertiesSearchDto.getDealType()
+                propertiesSearchDto.getElevator(),
+                propertiesSearchDto.getGenerator(),
+                propertiesSearchDto.getSecurity(),
+                propertiesSearchDto.getGym(),
+                propertiesSearchDto.getPool(),
+                propertiesSearchDto.getSchoolDistance(),
+                propertiesSearchDto.getHospitalDistance(),
+                propertiesSearchDto.getMainRoadDistance(),
+                propertiesSearchDto.getFacingDirection(),
+                propertiesSearchDto.getTenantType(),
+                propertiesSearchDto.getLoved(),
+                propertiesSearchDto.getNoOfBalconies(),
+                propertiesSearchDto.getKitchenType(),
+                propertiesSearchDto.getGasConnection(),
+                propertiesSearchDto.getCctv(),
+                propertiesSearchDto.getOccupancyRequirements(),
+                propertiesSearchDto.getRoofTopAllowed()
         );
     }
 
