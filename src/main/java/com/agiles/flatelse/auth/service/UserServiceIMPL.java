@@ -64,6 +64,10 @@ public class UserServiceIMPL implements UserService {
 
 
     public void create(UserRequestDTO requestDto, MultipartFile heroImageFile) throws IOException {
+       User user1=userRepository.findByUsername(requestDto.username());
+       if(user1!=null){
+           throw new RuntimeException("User already exists");
+       }
 
        User user = ConvertToEntity(new User(), requestDto, heroImageFile);
 
