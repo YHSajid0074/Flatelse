@@ -170,6 +170,11 @@ public class PropertiesServiceImpl implements PropertiesService {
         propertyRepository.deleteById(id);
     }
 
+    @Override
+    public List<IPropertiesResponseDto> getPropertiesByUserId(Long userId) {
+        return propertyRepository.getPropertiesByUserId(userId);
+    }
+
     private Properties convertForUpdate(Properties properties, PropertiesRequestDto propertiesRequestDto) throws Exception {
 
 //        Map<String, Object> heroUploadResult = cloudneryImageService.upload(propertiesRequestDto.heroImage());
