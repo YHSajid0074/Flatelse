@@ -59,8 +59,9 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
 
     @Query("""
     SELECT p FROM Properties p
-    WHERE (:dealType IS NULL OR p.dealType = :dealType)
+    WHERE (:dealType IS NULL OR LOWER(p.dealType) = LOWER(:dealType))
 """)
+
     List<IPropertiesResponseDto> getAllProperties(String dealType);
 
 
