@@ -18,4 +18,6 @@ public interface PropertiesService {
     void updateProperty(Long id, PropertiesRequestDto propertiesRequestDto) throws Exception;
 
     void deleteProperty(Long id);
+
+    List<IPropertiesResponseDto> getPropertiesByUserId(Long userId);
 }

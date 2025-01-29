@@ -62,6 +62,11 @@ public class PropertiesController {
         return ResponseEntity.ok(propertiesService.search1(propertiesSearchDto));
     }
 
+    @GetMapping("user/{userId}")
+    public ResponseEntity<List<IPropertiesResponseDto>> findPropertiesByUserId(@PathVariable Long userId) {
+      return ResponseEntity.ok(propertiesService.getPropertiesByUserId(userId));
+    }
+
 }
 
 
