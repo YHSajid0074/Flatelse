@@ -52,7 +52,6 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
     SELECT p FROM Properties p
     WHERE (:dealType IS NULL OR p.dealType = :dealType)
 """)
-
     List<IPropertiesResponseDto> getAllProperties(String dealType);
 
 
