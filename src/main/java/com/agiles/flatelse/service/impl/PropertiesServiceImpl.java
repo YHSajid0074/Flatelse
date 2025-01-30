@@ -1,5 +1,6 @@
 package com.agiles.flatelse.service.impl;
 
+import com.agiles.flatelse.auth.model.User;
 import com.agiles.flatelse.auth.repository.UserRepo;
 import com.agiles.flatelse.config.page.PageData;
 import com.agiles.flatelse.dto.request.PropertiesRequestDto;
@@ -50,7 +51,10 @@ public class PropertiesServiceImpl implements PropertiesService {
             imageUrls.add(imageUrl);
         }
 
-
+       User user = userRepo.findByUsername(propertiesRequestDto.userName());
+        if (user.getId() != null) {
+            user.setPropertyAdded((propertyRepository.getPropertiesCountByUserId(user.getId()))+1);
+        }
         properties.setHeroImage(heroImageUrl);
         properties.setImageUrls(imageUrls);
         properties.setLocation(propertiesRequestDto.location());

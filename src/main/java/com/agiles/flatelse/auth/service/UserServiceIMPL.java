@@ -11,6 +11,7 @@ import com.agiles.flatelse.auth.repository.RoleRepo;
 import com.agiles.flatelse.auth.repository.UserRepo;
 import com.agiles.flatelse.config.notification.SSEService;
 import com.agiles.flatelse.service.CloudneryImageService;
+import com.agiles.flatelse.service.PropertiesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -54,7 +55,7 @@ public class UserServiceIMPL implements UserService {
        user.setSold(userRequestDTO.sold());
        user.setProfession(userRequestDTO.profession());
        user.setProfilpic(profileImageUrl);
-       user.setPropertyAdded(userRequestDTO.propertyAdded());
+       user.setPropertyAdded(0L);
        user.setFullname(userRequestDTO.fullname());
 
        return user;
