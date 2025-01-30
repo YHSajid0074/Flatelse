@@ -4,16 +4,13 @@ import com.agiles.flatelse.auth.repository.UserRepo;
 import com.agiles.flatelse.config.page.PageData;
 import com.agiles.flatelse.dto.request.PropertiesRequestDto;
 import com.agiles.flatelse.dto.request.PropertiesSearchDto;
-import com.agiles.flatelse.dto.response.IPropertiesResponseDto;
-import com.agiles.flatelse.dto.response.PropertiesResponseDto;
+import com.agiles.flatelse.dto.response.IPropertiesResponseDto;;
 import com.agiles.flatelse.model.Properties;
 import com.agiles.flatelse.repository.PropertyRepository;
 import com.agiles.flatelse.service.CloudneryImageService;
 import com.agiles.flatelse.service.PropertiesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -173,6 +170,11 @@ public class PropertiesServiceImpl implements PropertiesService {
     @Override
     public List<IPropertiesResponseDto> getPropertiesByUserId(Long userId) {
         return propertyRepository.getPropertiesByUserId(userId);
+    }
+
+    @Override
+    public Long getPropertiesCountByUserId(Long userId) {
+        return propertyRepository.getPropertiesCountByUserId(userId);
     }
 
     private Properties convertForUpdate(Properties properties, PropertiesRequestDto propertiesRequestDto) throws Exception {

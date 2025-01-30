@@ -67,6 +67,10 @@ public class PropertiesController {
       return ResponseEntity.ok(propertiesService.getPropertiesByUserId(userId));
     }
 
+    @GetMapping("count/{userId}")
+    public ResponseEntity<Long>getPropertyCountByUserId(@PathVariable Long userId) {
+        return ResponseEntity.ok(propertiesService.getPropertiesCountByUserId(userId));
+    }
 }
 
 

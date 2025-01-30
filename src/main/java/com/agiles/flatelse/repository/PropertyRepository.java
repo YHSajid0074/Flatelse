@@ -122,4 +122,11 @@ public interface PropertyRepository extends JpaRepository<Properties, Long> {
             Boolean roofTopAllowed
     );
 
+    @Query("""
+    SELECT COUNT(p)
+    FROM Properties p 
+    WHERE p.user.id = :userId
+""")
+     Long getPropertiesCountByUserId(@Param("userId") Long userId);
+
 }

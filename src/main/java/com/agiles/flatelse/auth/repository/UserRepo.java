@@ -38,4 +38,6 @@ public interface UserRepo extends JpaRepository<User, Long > {
                     user.id = :id
             """ )
     CustomUserResponseDTO findUserByUserId(@Param( "id" ) Long id );
+
+
 }

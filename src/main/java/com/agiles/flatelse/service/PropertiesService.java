@@ -20,4 +20,6 @@ public interface PropertiesService {
     void deleteProperty(Long id);
 
     List<IPropertiesResponseDto> getPropertiesByUserId(Long userId);
+    Long getPropertiesCountByUserId(Long userId);
+
 }
